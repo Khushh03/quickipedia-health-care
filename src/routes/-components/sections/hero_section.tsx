@@ -41,9 +41,9 @@ export default function HeroSection() {
                             {/* Main Heading */}
                             <div className="space-y-4">
                                 <h1 className="text-6xl font-bold text-white leading-tight">
-                                    Innovating Healthcare with
+                                    Empowering Healthcare with
                                     <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent ml-2">
-                                        Modern Technology
+                                        Quickipedia Healthcare
                                     </span>
                                 </h1>
                             </div>

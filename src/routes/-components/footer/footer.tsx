@@ -84,7 +84,7 @@ export default function Footer() {
                 <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
                     {/* Logo and Description */}
                     <div className="space-y-3">
-                        <div className="text-2xl font-bold text-orange-500">qure.ai</div>
+                        <div className="text-2xl font-bold text-orange-500">Quickipedia Healthcare</div>
                         <div>
                             <p className="text-sm font-semibold text-slate-300">Qure.ai Technologies Private Limited</p>
                             <p className="max-w-xs text-sm text-slate-400">
