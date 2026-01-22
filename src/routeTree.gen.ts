@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as NavbarNavbarRouteImport } from './routes/navbar/navbar'
 import { Route as ComponentsFooterFooterRouteImport } from './routes/components--/footer/footer'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NavbarNavbarRoute = NavbarNavbarRouteImport.update({
+  id: '/navbar/navbar',
+  path: '/navbar/navbar',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ComponentsFooterFooterRoute = ComponentsFooterFooterRouteImport.update({
@@ -25,27 +31,31 @@ const ComponentsFooterFooterRoute = ComponentsFooterFooterRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/navbar/navbar': typeof NavbarNavbarRoute
   '/components--/footer/footer': typeof ComponentsFooterFooterRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/navbar/navbar': typeof NavbarNavbarRoute
   '/components--/footer/footer': typeof ComponentsFooterFooterRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/navbar/navbar': typeof NavbarNavbarRoute
   '/components--/footer/footer': typeof ComponentsFooterFooterRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/components--/footer/footer'
+  fullPaths: '/' | '/navbar/navbar' | '/components--/footer/footer'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/components--/footer/footer'
-  id: '__root__' | '/' | '/components--/footer/footer'
+  to: '/' | '/navbar/navbar' | '/components--/footer/footer'
+  id: '__root__' | '/' | '/navbar/navbar' | '/components--/footer/footer'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  NavbarNavbarRoute: typeof NavbarNavbarRoute
   ComponentsFooterFooterRoute: typeof ComponentsFooterFooterRoute
 }
 
@@ -56,6 +66,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/navbar/navbar': {
+      id: '/navbar/navbar'
+      path: '/navbar/navbar'
+      fullPath: '/navbar/navbar'
+      preLoaderRoute: typeof NavbarNavbarRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/components--/footer/footer': {
@@ -70,6 +87,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  NavbarNavbarRoute: NavbarNavbarRoute,
   ComponentsFooterFooterRoute: ComponentsFooterFooterRoute,
 }
 export const routeTree = rootRouteImport
