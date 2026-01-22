@@ -1,9 +1,4 @@
-import { createFileRoute } from '@tanstack/react-router'
 import { Mail, Linkedin, Github, Youtube } from 'lucide-react'
-
-export const Route = createFileRoute('/components--/footer/footer')({
-  component: Footer,
-})
 
 const footerSections = [
   {
@@ -65,7 +60,7 @@ const socialLinks = [
   { icon: Youtube, label: 'YouTube', href: '#' },
 ]
 
-export function Footer() {
+export default function Footer() {
   return (
     <footer className="bg-slate-900 text-slate-100">
       {/* Main Footer Content */}
@@ -106,8 +101,8 @@ export function Footer() {
                 Qure.ai Technologies Private Limited
               </p>
               <p className="max-w-xs text-sm text-slate-400">
-                Qure.ai was founded in 2016. Our mission is to use artificial intelligence to make
-                healthcare more accessible and affordable.
+                Qure.ai was founded in 2016. Our mission is to use artificial
+                intelligence to make healthcare more accessible and affordable.
               </p>
             </div>
           </div>

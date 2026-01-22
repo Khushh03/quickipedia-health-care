@@ -10,53 +10,33 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as NavbarNavbarRouteImport } from './routes/navbar/navbar'
-import { Route as ComponentsFooterFooterRouteImport } from './routes/components--/footer/footer'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const NavbarNavbarRoute = NavbarNavbarRouteImport.update({
-  id: '/navbar/navbar',
-  path: '/navbar/navbar',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsFooterFooterRoute = ComponentsFooterFooterRouteImport.update({
-  id: '/components--/footer/footer',
-  path: '/components--/footer/footer',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/navbar/navbar': typeof NavbarNavbarRoute
-  '/components--/footer/footer': typeof ComponentsFooterFooterRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/navbar/navbar': typeof NavbarNavbarRoute
-  '/components--/footer/footer': typeof ComponentsFooterFooterRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/navbar/navbar': typeof NavbarNavbarRoute
-  '/components--/footer/footer': typeof ComponentsFooterFooterRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/navbar/navbar' | '/components--/footer/footer'
+  fullPaths: '/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/navbar/navbar' | '/components--/footer/footer'
-  id: '__root__' | '/' | '/navbar/navbar' | '/components--/footer/footer'
+  to: '/'
+  id: '__root__' | '/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  NavbarNavbarRoute: typeof NavbarNavbarRoute
-  ComponentsFooterFooterRoute: typeof ComponentsFooterFooterRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -68,27 +48,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/navbar/navbar': {
-      id: '/navbar/navbar'
-      path: '/navbar/navbar'
-      fullPath: '/navbar/navbar'
-      preLoaderRoute: typeof NavbarNavbarRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components--/footer/footer': {
-      id: '/components--/footer/footer'
-      path: '/components--/footer/footer'
-      fullPath: '/components--/footer/footer'
-      preLoaderRoute: typeof ComponentsFooterFooterRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  NavbarNavbarRoute: NavbarNavbarRoute,
-  ComponentsFooterFooterRoute: ComponentsFooterFooterRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
