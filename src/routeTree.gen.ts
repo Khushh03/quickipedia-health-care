@@ -10,33 +10,43 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ComponentsFooterFooterRouteImport } from './routes/components--/footer/footer'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ComponentsFooterFooterRoute = ComponentsFooterFooterRouteImport.update({
+  id: '/components--/footer/footer',
+  path: '/components--/footer/footer',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/components--/footer/footer': typeof ComponentsFooterFooterRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/components--/footer/footer': typeof ComponentsFooterFooterRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/components--/footer/footer': typeof ComponentsFooterFooterRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/components--/footer/footer'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/components--/footer/footer'
+  id: '__root__' | '/' | '/components--/footer/footer'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ComponentsFooterFooterRoute: typeof ComponentsFooterFooterRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +58,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/components--/footer/footer': {
+      id: '/components--/footer/footer'
+      path: '/components--/footer/footer'
+      fullPath: '/components--/footer/footer'
+      preLoaderRoute: typeof ComponentsFooterFooterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ComponentsFooterFooterRoute: ComponentsFooterFooterRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
