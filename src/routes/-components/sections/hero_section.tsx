@@ -1,89 +1,111 @@
-import { ChevronRight, Zap, ActivitySquare } from "lucide-react"
-
-interface HeroSectionProps {
-    title: string
-    subtitle: string
-    description: string
-    ctas: Array<{
-        text: string
-        variant: "primary" | "secondary"
-        icon?: "zap" | "chevron"
-    }>
-}
-
-export default function HeroSection({ title, subtitle, description, ctas }: HeroSectionProps) {
-    const getIcon = (iconName?: string) => {
-        switch (iconName) {
-            case "zap":
-                return <Zap size={20} />
-            case "chevron":
-                return <ChevronRight size={20} />
-            default:
-                return null
-        }
-    }
-
+export default function HeroSection() {
     return (
         <div className="w-full">
             {/* Hero Section */}
-            <section className="relative min-h-screen bg-gradient-to-br from-background via-muted to-background overflow-hidden">
-                {/* Animated background elements */}
-                <div className="absolute inset-0 overflow-hidden">
-                    <div className="absolute top-20 right-10 w-72 h-72 bg-primary rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-                    <div className="absolute -bottom-8 left-20 w-72 h-72 bg-secondary rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-                    <div className="absolute top-1/2 left-1/2 w-72 h-72 bg-accent rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
-                </div>
-
+            <section className="relative min-h-screen bg-[#0f2942] overflow-hidden">
                 {/* Content */}
                 <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         {/* Left Content */}
                         <div className="space-y-8">
                             {/* Main Heading */}
-                            <div className="space-y-4">
-                                <h1 className="text-6xl font-bold text-foreground leading-tight">
-                                    {title.split("Quickipedia Healthcare")[0]}
-                                    <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent ml-2">
-                                        Quickipedia Healthcare
-                                    </span>
-                                </h1>
+                            <h1 className="text-5xl md:text-6xl font-weight-400 text-white leading-tight">
+                                Innovating
+                                <br />
+                                Healthcare with
+                                <br />
+                                AI-Powered Technology
+                            </h1>
+
+                            {/* CTA Button */}
+                            <div>
+                                <button className="px-8 py-3 bg-[#ff6b6b] hover:bg-[#ff5252] text-white font-medium rounded-full transition-all duration-300">
+                                    Talk to Our Experts
+                                </button>
                             </div>
 
-                            {/* Subheading */}
-                            <p className="text-xl text-muted-foreground font-medium">{subtitle}</p>
-
-                            {/* Description */}
-                            <p className="text-lg text-muted-foreground leading-relaxed">{description}</p>
-
-                            {/* CTA Buttons */}
-                            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                                {ctas.map((cta, idx) => (
-                                    <button
-                                        key={idx}
-                                        className={
-                                            cta.variant === "primary"
-                                                ? "px-8 py-4 bg-gradient-to-r from-primary to-secondary text-primary-foreground font-semibold rounded-lg hover:shadow-lg hover:shadow-primary/50 transition-all duration-300 flex items-center gap-2 justify-center sm:justify-start"
-                                                : "px-8 py-4 border-2 border-secondary text-secondary font-semibold rounded-lg hover:bg-secondary hover:text-secondary-foreground transition-all duration-300 flex items-center gap-2 justify-center sm:justify-start"
-                                        }
-                                    >
-                                        {cta.icon && idx === 0 && getIcon(cta.icon)}
-                                        {cta.text}
-                                        {cta.icon && idx === 1 && getIcon(cta.icon)}
-                                    </button>
-                                ))}
+                            {/* Statistics */}
+                            <div className="flex gap-8 pt-8">
+                                <div className="space-y-1">
+                                    <div className="text-3xl md:text-4xl font-weight-400 text-white">40M+</div>
+                                    <div className="text-sm text-gray-400">
+                                        Lives impacted to
+                                        <br />
+                                        date
+                                    </div>
+                                </div>
+                                <div className="space-y-1">
+                                    <div className="text-3xl md:text-4xl font-weight-400 text-white">105+</div>
+                                    <div className="text-sm text-gray-400">
+                                        Countries via
+                                        <br />
+                                        5200+ sites
+                                    </div>
+                                </div>
+                                <div className="space-y-1">
+                                    <div className="text-3xl md:text-4xl font-weight-400 text-white">1B+</div>
+                                    <div className="text-sm text-gray-400">
+                                        Training
+                                        <br />
+                                        datasets
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        {/* Right Side - Visual Element */}
-                        <div className="relative hidden md:block">
-                            <div className="relative w-full h-96 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl border border-primary/30 backdrop-blur-sm p-8 flex items-center justify-center">
-                                <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-primary/20 to-transparent"></div>
-                                <div className="relative z-10 text-center space-y-4">
-                                    <ActivitySquare size={80} className="text-primary mx-auto animate-pulse" />
-                                    <p className="text-muted-foreground text-lg font-medium">
-                                        Advanced Healthcare Technology Platform
-                                    </p>
+                        {/* Separator Line */}
+                        <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-teal-400/30 to-transparent"></div>
+
+                        {/* Right Side - Medical Images */}
+                        <div className="relative hidden md:block h-[500px] pl-12">
+                            {/* Dark Overlay Background */}
+                            <div className="absolute inset-0 bg-[#0a1f2e] opacity-60 rounded-lg"></div>
+
+                            {/* Globe Video Background */}
+                            <video
+                                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-100 h-100 rounded-full border-2 border-teal-400/30 object-cover"
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                            >
+                                <source src="/videos/healthcare-globe.mp4" type="video/mp4" />
+                                {/* Fallback for browsers that don't support video */}
+                                <div className="w-80 h-80 bg-gradient-to-br from-teal-400/20 to-cyan-500/20 rounded-full"></div>
+                            </video>
+
+                            {/* Medical Image Cards - Positioned to match the design */}
+                            {/* Top Left - Red scan */}
+                            <div className="absolute top-8 left-4 w-40 h-32 bg-gradient-to-br from-red-900 to-red-700 rounded-xl border border-red-500/30 shadow-xl overflow-hidden">
+                                <div className="w-full h-full flex items-center justify-center">
+                                    <div className="w-20 h-20 rounded-full border-4 border-red-300/50"></div>
                                 </div>
+                            </div>
+
+                            {/* Top Right - Eye scan */}
+                            <div className="absolute top-0 right-8 w-48 h-40 bg-gradient-to-br from-teal-500/30 to-cyan-500/30 rounded-xl border border-teal-400/50 shadow-xl overflow-hidden backdrop-blur-sm">
+                                <div className="w-full h-full flex items-center justify-center">
+                                    <div className="w-24 h-24 rounded-full border-4 border-teal-300/50"></div>
+                                </div>
+                            </div>
+
+                            {/* Middle Left - Lung scan */}
+                            <div className="absolute top-36 left-8 w-44 h-36 bg-gradient-to-br from-blue-900 to-blue-700 rounded-xl border border-blue-400/30 shadow-xl overflow-hidden">
+                                <div className="w-full h-full flex items-center justify-center">
+                                    <div className="w-20 h-20 rounded-full border-4 border-blue-300/50"></div>
+                                </div>
+                            </div>
+
+                            {/* Bottom Right - Chest X-ray */}
+                            <div className="absolute bottom-24 right-4 w-40 h-36 bg-gradient-to-br from-purple-900 to-purple-700 rounded-xl border border-purple-400/30 shadow-xl overflow-hidden">
+                                <div className="w-full h-full flex items-center justify-center">
+                                    <div className="w-16 h-24 rounded-lg border-4 border-yellow-300/50"></div>
+                                </div>
+                            </div>
+
+                            {/* Info Badge */}
+                            <div className="absolute bottom-8 left-12 bg-[#1a3a52] text-white text-xs px-3 py-1 rounded-full border border-teal-400/30">
+                                AI Healthcare Platform
                             </div>
                         </div>
                     </div>

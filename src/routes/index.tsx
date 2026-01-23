@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router"
 import Navbar from "./-components/navbar/navbar"
 import Footer from "./-components/footer/footer"
 import HeroSection from "./-components/sections/hero_section"
+import PartnersCarouselSection from "./-components/sections/partners_carousel_section"
 import SliderSection from "./-components/sections/slider_section"
 import DomainsSection from "./-components/sections/domains_section"
 import WhyUsSection from "./-components/sections/why_us_section"
@@ -330,6 +331,7 @@ function RouteComponent() {
             <div className="flex flex-col">
                 <main>
                     <HeroSection {...data.hero} />
+                    <PartnersCarouselSection />
                     <SliderSection {...data.slider} />
                     <DomainsSection {...data.domains} />
                     <WhyUsSection {...data.whyUs} />
