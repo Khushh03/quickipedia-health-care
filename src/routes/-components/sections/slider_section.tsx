@@ -12,29 +12,31 @@ export default function SliderSection({ slides }: SliderSectionProps) {
     const cards = [
         {
             id: 0,
-            title: "Advancing Public Health Access for Tuberculosis, Pediatric TB & Beyond",
+            title: "Enhancing accuracy in radiology and diagnostics.",
             color: "bg-[#00897b]", // Teal
             textColor: "text-white",
-            description: "",
+            description:
+                "AI Solutions for Faster & More Accurate Diagnoses. We develop intelligent AI models that assist radiologists and clinicians in detecting abnormalities from X-ray, CT, MRI, and ultrasound images with high precision.",
             visual: "tb",
             iconColor: "text-white",
         },
         {
             id: 1,
-            title: "Accelerating Early Detection & Management of Lung Cancer",
+            title: "Digitizing healthcare operations end-to-end.",
             color: "bg-[#00796b]", // Darker Teal
             textColor: "text-white",
-            description: "",
+            description:
+                "Smart Software for Modern Healthcare Workflows.We design secure, scalable hospital and clinical software to streamline patient management, clinical documentation, billing, and operations.",
             visual: "lung",
             iconColor: "text-white",
         },
         {
             id: 2,
-            title: "Enabling Timely Intervention in Stroke Care",
+            title: "Digital Health & Connected Care",
             color: "bg-[#dcedc8]", // Light Green/Beige
             textColor: "text-[#1a3a52]", // Dark Blue text
             description:
-                "An AI-powered care coordination suite to enable patient triage, ensuring seamless clinical coordination with real-time communication. It supports Hub & Spoke networks to facilitate timely stroke interventions by clinicians, anywhere.",
+                "Technology for Remote, Smart & Continuous Care.We build digital health platforms that connect doctors, patients, and devices for continuous monitoring, telemedicine, and preventive care.",
             visual: "stroke",
             button: "See How",
             iconColor: "text-[#1a3a52]",
