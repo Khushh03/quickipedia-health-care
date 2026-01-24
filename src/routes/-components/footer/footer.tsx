@@ -1,4 +1,5 @@
 import { Mail, Linkedin, Github, Youtube } from "lucide-react"
+import { Link } from "@tanstack/react-router"
 
 const footerSections = [
     {
@@ -28,11 +29,11 @@ const footerSections = [
     {
         title: "About",
         links: [
-            { name: "About Us" },
+            { name: "About Us", href: "/about-us" },
             { name: "Our Team" },
             { name: "Our Investors" },
             { name: "Client Success" },
-            { name: "Contact Us" },
+            { name: "Contact Us", href: "/contact-us" },
             { name: "Careers" },
         ],
     },
@@ -64,12 +65,12 @@ export default function Footer() {
                             <ul className="space-y-2">
                                 {section.links.map((link) => (
                                     <li key={link.name}>
-                                        <a
-                                            href="#"
-                                            className="text-sm text-slate-400 transition-colors hover:text-slate-100"
+                                        <Link
+                                            to={(link.href || "#") as any}
+                                            className="text-sm text-slate-400 transition-colors hover:text-slate-100 decoration-transparent"
                                         >
                                             {link.name}
-                                        </a>
+                                        </Link>
                                     </li>
                                 ))}
                             </ul>

@@ -182,8 +182,18 @@ const data = {
         title: "Let's Build the Future of Healthcare Together",
         description: "Partner with us to design intelligent, secure, and scalable healthcare technology solutions.",
         buttons: [
-            { text: "Schedule a Healthcare Consultation", variant: "primary" as const, icon: "zap" as const },
-            { text: "Request a Proposal", variant: "secondary" as const, icon: "chevron" as const },
+            {
+                text: "Schedule a Healthcare Consultation",
+                variant: "primary" as const,
+                icon: "zap" as const,
+                href: "/contact-us",
+            },
+            {
+                text: "Request a Proposal",
+                variant: "secondary" as const,
+                icon: "chevron" as const,
+                href: "/contact-us",
+            },
         ],
     },
     aboutUs: {
