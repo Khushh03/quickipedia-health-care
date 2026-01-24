@@ -259,15 +259,80 @@ function RouteComponent() {
                         </div>
 
                         {/* Featured In / Logos Section */}
-                        <div className="bg-slate-50 py-16 px-4">
-                            <div className="max-w-6xl mx-auto flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-50 grayscale">
-                                <span className="text-2xl font-bold text-slate-400">Featured In</span>
-                                {/* Logo Placeholders */}
-                                <div className="h-8 w-24 bg-slate-300 rounded"></div>
-                                <div className="h-8 w-24 bg-slate-300 rounded"></div>
-                                <div className="h-8 w-24 bg-slate-300 rounded"></div>
-                                <div className="h-8 w-24 bg-slate-300 rounded"></div>
-                                <div className="h-8 w-24 bg-slate-300 rounded"></div>
+                        <div className="bg-slate-50 py-16 px-6 overflow-hidden border-t border-slate-200">
+                            <div className="max-w-7xl mx-auto flex items-center gap-12">
+                                <span className="text-2xl font-bold text-slate-800 shrink-0 whitespace-nowrap">
+                                    Featured in
+                                </span>
+
+                                <div className="relative flex-1 overflow-hidden">
+                                    {/* Left Fade Overlay */}
+                                    <div className="absolute left-0 top-0 bottom-0 w-24 bg-linear-to-r from-slate-50 to-transparent z-10 pointer-events-none"></div>
+                                    {/* Right Fade Overlay */}
+                                    <div className="absolute right-0 top-0 bottom-0 w-24 bg-linear-to-l from-slate-50 to-transparent z-10 pointer-events-none"></div>
+
+                                    {/* Animated Carousel */}
+                                    <div className="flex animate-carousel gap-16 items-center">
+                                        {[
+                                            { name: "THE INDEPENDENT", font: "serif", weight: "bold" },
+                                            { name: "Inc42", font: "sans", weight: "extrabold", color: "text-red-600" },
+                                            { name: "The New York Times", font: "serif", weight: "black" },
+                                            {
+                                                name: "livemint",
+                                                font: "sans",
+                                                weight: "bold",
+                                                color: "text-orange-500",
+                                            },
+                                            { name: "Forbes", font: "serif", weight: "black" },
+                                            {
+                                                name: "Business Today",
+                                                font: "sans",
+                                                weight: "bold",
+                                                color: "text-cyan-600",
+                                            },
+                                        ]
+                                            .concat([
+                                                { name: "THE INDEPENDENT", font: "serif", weight: "bold" },
+                                                {
+                                                    name: "Inc42",
+                                                    font: "sans",
+                                                    weight: "extrabold",
+                                                    color: "text-red-600",
+                                                },
+                                                { name: "The New York Times", font: "serif", weight: "black" },
+                                                {
+                                                    name: "livemint",
+                                                    font: "sans",
+                                                    weight: "bold",
+                                                    color: "text-orange-500",
+                                                },
+                                                { name: "Forbes", font: "serif", weight: "black" },
+                                                {
+                                                    name: "Business Today",
+                                                    font: "sans",
+                                                    weight: "bold",
+                                                    color: "text-cyan-600",
+                                                },
+                                            ])
+                                            .map((logo, idx) => (
+                                                <div
+                                                    key={idx}
+                                                    className="shrink-0 opacity-60 hover:opacity-100 transition-opacity flex items-center gap-1"
+                                                >
+                                                    <span
+                                                        className={`
+                                                    ${logo.font === "serif" ? "font-serif" : "font-sans"}
+                                                    ${logo.weight === "extrabold" ? "font-extrabold" : logo.weight === "black" ? "font-black" : "font-bold"}
+                                                    ${logo.color || "text-slate-900"}
+                                                    text-xl md:text-2xl tracking-tight whitespace-nowrap
+                                                `}
+                                                    >
+                                                        {logo.name}
+                                                    </span>
+                                                </div>
+                                            ))}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
