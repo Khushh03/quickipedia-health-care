@@ -1,0 +1,279 @@
+import { createFileRoute } from "@tanstack/react-router"
+import { CheckSquare, Mail } from "lucide-react"
+import Footer from "./-components/footer/footer"
+import Navbar from "./-components/navbar/navbar"
+
+export const Route = createFileRoute("/contact-us")({
+    component: RouteComponent,
+})
+
+function RouteComponent() {
+    return (
+        <>
+            <Navbar />
+            <div className="flex flex-col">
+                <main>
+                    <div className="min-h-screen bg-slate-950 text-white font-sans">
+                        {/* Header Section */}
+                        <div className="pt-20 pb-40 px-4 text-center bg-slate-900/50 relative overflow-hidden">
+                            <div className="absolute inset-0 bg-linear-to-b from-slate-900 to-slate-950"></div>
+                            <div className="relative z-10 max-w-4xl mx-auto">
+                                <div className="flex justify-center mb-6">
+                                    <div className="p-3 bg-teal-500/20 rounded-lg border border-teal-500/30">
+                                        <CheckSquare className="w-8 h-8 text-teal-500" />
+                                    </div>
+                                </div>
+                                <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
+                                    We are open to conversation
+                                </h1>
+                                <p className="text-slate-400">Get in touch with us.</p>
+                            </div>
+                        </div>
+
+                        {/* Form Section */}
+                        <div className="max-w-4xl mx-auto px-4 -mt-32 relative z-20 pb-20">
+                            <div className="bg-white rounded-2xl shadow-2xl p-8 md:p-12 text-slate-900 border border-slate-200">
+                                <h2 className="text-2xl font-bold text-center mb-10">How can we help you?</h2>
+
+                                <form className="space-y-6">
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div className="space-y-2">
+                                            <label className="text-sm font-medium text-slate-600 block">
+                                                First Name*
+                                            </label>
+                                            <input
+                                                type="text"
+                                                className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all"
+                                                placeholder="Enter your first name"
+                                            />
+                                        </div>
+                                        <div className="space-y-2">
+                                            <label className="text-sm font-medium text-slate-600 block">
+                                                Last Name*
+                                            </label>
+                                            <input
+                                                type="text"
+                                                className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all"
+                                                placeholder="Enter your last name"
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div className="space-y-2">
+                                            <label className="text-sm font-medium text-slate-600 block">
+                                                Job Title*
+                                            </label>
+                                            <input
+                                                type="text"
+                                                className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all"
+                                                placeholder="Enter your job title"
+                                            />
+                                        </div>
+                                        <div className="space-y-2">
+                                            <label className="text-sm font-medium text-slate-600 block">
+                                                Company Name*
+                                            </label>
+                                            <input
+                                                type="text"
+                                                className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all"
+                                                placeholder="Enter company name"
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div className="space-y-2">
+                                            <label className="text-sm font-medium text-slate-600 block">
+                                                Work Email Address*
+                                            </label>
+                                            <input
+                                                type="email"
+                                                className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all"
+                                                placeholder="Enter work email"
+                                            />
+                                        </div>
+                                        <div className="space-y-2">
+                                            <label className="text-sm font-medium text-slate-600 block">
+                                                Mobile Number*
+                                            </label>
+                                            <div className="flex gap-2">
+                                                <select className="px-2 py-3 rounded-lg border border-slate-200 bg-white">
+                                                    <option>India (+91)</option>
+                                                    <option>USA (+1)</option>
+                                                    <option>UK (+44)</option>
+                                                </select>
+                                                <input
+                                                    type="tel"
+                                                    className="flex-1 px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all"
+                                                    placeholder="Enter mobile number"
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="space-y-2">
+                                        <label className="text-sm font-medium text-slate-600 block">
+                                            Country / Region*
+                                        </label>
+                                        <select className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-orange-500 outline-none bg-white">
+                                            <option value="">Please Select</option>
+                                            <option value="india">India</option>
+                                            <option value="usa">USA</option>
+                                            <option value="uk">UK</option>
+                                        </select>
+                                    </div>
+
+                                    <div className="space-y-4">
+                                        <label className="text-sm font-medium text-slate-600 block">
+                                            What are you looking for?*
+                                        </label>
+                                        <div className="space-y-3">
+                                            {[
+                                                "I'm looking for a tool for our clinical team",
+                                                "I am a physician or clinical worker looking for information for myself",
+                                                "Neither of these",
+                                            ].map((option) => (
+                                                <label key={option} className="flex items-center gap-3 cursor-pointer">
+                                                    <input
+                                                        type="radio"
+                                                        name="lookingFor"
+                                                        className="w-4 h-4 text-orange-500 border-slate-300 focus:ring-orange-500"
+                                                    />
+                                                    <span className="text-sm text-slate-600">{option}</span>
+                                                </label>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    <div className="space-y-2">
+                                        <label className="text-sm font-medium text-slate-600 block">
+                                            How did you hear about us?*
+                                        </label>
+                                        <select className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-orange-500 outline-none bg-white">
+                                            <option value="">Please Select</option>
+                                            <option value="social">Social Media</option>
+                                            <option value="ad">Advertisement</option>
+                                            <option value="referral">Referral</option>
+                                        </select>
+                                    </div>
+
+                                    <div className="space-y-4 py-4">
+                                        <div className="flex items-start gap-3">
+                                            <input
+                                                type="checkbox"
+                                                className="mt-1 w-4 h-4 text-orange-500 rounded border-slate-300 focus:ring-orange-500"
+                                            />
+                                            <p className="text-xs text-slate-500 leading-relaxed">
+                                                Quickipedia is committed to protecting and respecting your privacy. I
+                                                confirm that I have read and understood the{" "}
+                                                <a href="#" className="text-orange-500 underline">
+                                                    Privacy Policy
+                                                </a>{" "}
+                                                and{" "}
+                                                <a href="#" className="text-orange-500 underline">
+                                                    Terms of Website Use
+                                                </a>
+                                                .
+                                            </p>
+                                        </div>
+                                        <div className="flex items-start gap-3">
+                                            <input
+                                                type="checkbox"
+                                                className="mt-1 w-4 h-4 text-orange-500 rounded border-slate-300 focus:ring-orange-500"
+                                            />
+                                            <p className="text-xs text-slate-500 leading-relaxed">
+                                                I agree to receive other communications from Quickipedia.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <button className="w-full md:w-32 bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-lg transition-colors shadow-lg shadow-orange-500/20">
+                                        Submit
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+
+                        {/* Locations Section */}
+                        <div className="bg-slate-900 py-20 px-4">
+                            <div className="max-w-6xl mx-auto">
+                                <div className="text-center mb-16">
+                                    <h2 className="text-3xl md:text-4xl font-bold mb-4">Reach us</h2>
+                                    <p className="text-slate-400">
+                                        Our team is across several locations to assist you.
+                                    </p>
+                                    <a
+                                        href="mailto:partnerships@aureal.ai"
+                                        className="text-orange-400 hover:text-orange-300 flex items-center justify-center gap-2 mt-4"
+                                    >
+                                        <Mail className="w-4 h-4" /> partnerships@quickipedia.com
+                                    </a>
+                                </div>
+
+                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                                    <div className="space-y-10">
+                                        {[
+                                            {
+                                                city: "India",
+                                                addr: "Registered Address: No.12, 1st Floor, S.K.Tower, 2nd Cross Road, Bangalore, Karnataka-560042",
+                                            },
+                                            {
+                                                city: "Mumbai",
+                                                addr: "Mumbai Office: No.12, 1st Floor, S.K.Tower, 2nd Cross Road, Bangalore, Karnataka-560042",
+                                            },
+                                            {
+                                                city: "Bangalore",
+                                                addr: "Bangalore Office: No.12, 1st Floor, S.K.Tower, 2nd Cross Road, Bangalore, Karnataka-560042",
+                                            },
+                                            {
+                                                city: "USA",
+                                                addr: "Registered Address: One World Trade Center, Suite 8500, New York, NY 10007",
+                                            },
+                                            { city: "UK", addr: "Registered Address: 124 City Road, London, EC1V 2NX" },
+                                        ].map((loc) => (
+                                            <div key={loc.city} className="space-y-2">
+                                                <h3 className="text-xl font-bold text-orange-400">{loc.city}</h3>
+                                                <p className="text-slate-300 text-sm leading-relaxed max-w-sm">
+                                                    {loc.addr}
+                                                </p>
+                                                <a
+                                                    href="#"
+                                                    className="text-orange-400 text-sm hover:underline block mt-2"
+                                                >
+                                                    Get Directions →
+                                                </a>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <div className="relative group">
+                                        <div className="absolute -inset-2 bg-linear-to-r from-orange-500 to-teal-500 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+                                        <img
+                                            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=2070"
+                                            alt="Our Team Working"
+                                            className="relative rounded-2xl shadow-2xl grayscale group-hover:grayscale-0 transition-all duration-500 ring-1 ring-slate-700"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Featured In / Logos Section */}
+                        <div className="bg-slate-50 py-16 px-4">
+                            <div className="max-w-6xl mx-auto flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-50 grayscale">
+                                <span className="text-2xl font-bold text-slate-400">Featured In</span>
+                                {/* Logo Placeholders */}
+                                <div className="h-8 w-24 bg-slate-300 rounded"></div>
+                                <div className="h-8 w-24 bg-slate-300 rounded"></div>
+                                <div className="h-8 w-24 bg-slate-300 rounded"></div>
+                                <div className="h-8 w-24 bg-slate-300 rounded"></div>
+                                <div className="h-8 w-24 bg-slate-300 rounded"></div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <Footer />
+            </div>
+        </>
+    )
+}

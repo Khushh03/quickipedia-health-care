@@ -17,6 +17,16 @@ export default function SliderSection({ slides }: SliderSectionProps) {
             textColor: "text-white",
             description:
                 "AI Solutions for Faster & More Accurate Diagnoses. We develop intelligent AI models that assist radiologists and clinicians in detecting abnormalities from X-ray, CT, MRI, and ultrasound images with high precision.",
+            subSections: [
+                {
+                    title: "Key Capabilities",
+                    content: ["High-precision anomaly detection", "Automated triage integration"],
+                },
+                {
+                    title: "Use Cases",
+                    content: ["Mass screening programs", "Pediatric diagnostics support"],
+                },
+            ],
             visual: "tb",
             iconColor: "text-white",
         },
@@ -27,6 +37,16 @@ export default function SliderSection({ slides }: SliderSectionProps) {
             textColor: "text-white",
             description:
                 "Smart Software for Modern Healthcare Workflows.We design secure, scalable hospital and clinical software to streamline patient management, clinical documentation, billing, and operations.",
+            subSections: [
+                {
+                    title: "Key Capabilities",
+                    content: ["Early nodule detection", "Longitudinal tracking"],
+                },
+                {
+                    title: "Use Cases",
+                    content: ["Oncology workflow optimization", "Preventive health checks"],
+                },
+            ],
             visual: "lung",
             iconColor: "text-white",
         },
@@ -37,6 +57,16 @@ export default function SliderSection({ slides }: SliderSectionProps) {
             textColor: "text-[#1a3a52]", // Dark Blue text
             description:
                 "Technology for Remote, Smart & Continuous Care.We build digital health platforms that connect doctors, patients, and devices for continuous monitoring, telemedicine, and preventive care.",
+            subSections: [
+                {
+                    title: "Key Capabilities",
+                    content: ["Real-time analysis", "Stroke coordination suite"],
+                },
+                {
+                    title: "Use Cases",
+                    content: ["Emergency response", "Hub & Spoke networks"],
+                },
+            ],
             visual: "stroke",
             button: "See How",
             iconColor: "text-[#1a3a52]",
@@ -72,7 +102,7 @@ export default function SliderSection({ slides }: SliderSectionProps) {
                                 <div className="relative z-10 flex flex-col h-full">
                                     {/* Title - Adjust size based on active state */}
                                     <h3
-                                        className={`font-medium mb-4 transition-all duration-300 ${
+                                        className={`relative z-30 font-medium mb-4 transition-all duration-300 ${
                                             card.textColor
                                         } ${activeId === card.id ? "text-3xl md:text-4xl max-w-2xl" : "text-xl md:text-2xl line-clamp-3"}`}
                                     >
@@ -81,16 +111,39 @@ export default function SliderSection({ slides }: SliderSectionProps) {
 
                                     {/* Description & Button - Only visible when active */}
                                     <div
-                                        className={`transition-all duration-500 overflow-hidden ${
+                                        className={`relative z-30 transition-all duration-500 overflow-hidden ${
                                             activeId === card.id ? "opacity-100 max-h-[500px]" : "opacity-0 max-h-0"
                                         }`}
                                     >
-                                        {card.description && (
-                                            <p
-                                                className={`text-lg mb-8 max-w-xl leading-relaxed ${card.textColor === "text-white" ? "text-white/90" : "text-[#1a3a52]/80"}`}
-                                            >
-                                                {card.description}
-                                            </p>
+                                        <p
+                                            className={`text-lg mb-8 max-w-xl leading-relaxed ${card.textColor === "text-white" ? "text-white/90" : "text-[#1a3a52]/80"}`}
+                                        >
+                                            {card.description}
+                                        </p>
+
+                                        {/* Sub-sections (Key Capabilities & Use Cases) */}
+                                        {card.subSections && (
+                                            <div className="grid grid-cols-2 gap-8 mb-8 max-w-2xl">
+                                                {card.subSections.map((section: any, idx: number) => (
+                                                    <div key={idx}>
+                                                        <h4
+                                                            className={`text-sm font-bold uppercase tracking-wider mb-3 ${card.textColor === "text-white" ? "text-white/70" : "text-[#1a3a52]/60"}`}
+                                                        >
+                                                            {section.title}
+                                                        </h4>
+                                                        <ul className="space-y-2">
+                                                            {section.content.map((item: string, i: number) => (
+                                                                <li
+                                                                    key={i}
+                                                                    className={`text-sm ${card.textColor === "text-white" ? "text-white/90" : "text-[#1a3a52]/80"}`}
+                                                                >
+                                                                    • {item}
+                                                                </li>
+                                                            ))}
+                                                        </ul>
+                                                    </div>
+                                                ))}
+                                            </div>
                                         )}
 
                                         {card.button && (
@@ -138,9 +191,9 @@ export default function SliderSection({ slides }: SliderSectionProps) {
                                                 )}
 
                                                 {card.visual === "stroke" && (
-                                                    <div className="absolute bottom-[-20px] right-[-20px] w-[400px] h-[400px]">
+                                                    <div className="absolute bottom-[-40px] right-[-40px] w-[400px] h-[400px] pointer-events-none">
                                                         {/* Brain Scan Circle */}
-                                                        <div className="absolute top-0 right-10 w-48 h-48 bg-black/80 rounded-full border-4 border-white overflow-hidden shadow-2xl z-20">
+                                                        <div className="absolute bottom-20 right-20 w-48 h-48 bg-black/80 rounded-full border-4 border-white overflow-hidden shadow-2xl z-0">
                                                             {/* Stylized Brain */}
                                                             <div className="w-full h-full bg-gray-800 relative opacity-80">
                                                                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-40 bg-gray-600 rounded-full blur-sm"></div>
@@ -164,7 +217,7 @@ export default function SliderSection({ slides }: SliderSectionProps) {
                                                             {/* Silhouette placeholder */}
                                                             <div className="w-64 h-64 bg-black rounded-tl-3xl"></div>
                                                         </div>
-                                                        <div className="absolute bottom-20 right-40 bg-white/90 px-3 py-1 rounded text-xs font-bold text-red-600 z-30">
+                                                        <div className="absolute bottom-32 right-52 bg-white/90 px-3 py-1 rounded text-xs font-bold text-red-600 z-30 shadow-lg">
                                                             CODE STROKE
                                                         </div>
                                                     </div>

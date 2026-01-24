@@ -1,15 +1,16 @@
 import React from "react"
 import { Menu } from "lucide-react"
+import { Link } from "@tanstack/react-router"
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false)
 
     const navLinks = [
-        { name: "Home", href: "#" },
-        { name: "Solutions", href: "#" },
-        { name: "About", href: "#" },
-        { name: "Impact", href: "#" },
-        { name: "Contact", href: "#" },
+        { name: "Home", href: "/" },
+        { name: "Solutions", href: "/#solutions" },
+        { name: "About", href: "/#about" },
+        { name: "Impact", href: "/#impact" },
+        { name: "Contact", href: "/contact_us/contact" },
     ]
 
     return (
@@ -18,21 +19,23 @@ export default function Navbar() {
                 <div className="flex items-center justify-between h-16 md:h-20">
                     {/* Logo */}
                     <div className="flex-shrink-0">
-                        <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-orange-500 to-orange-400 bg-clip-text text-transparent">
-                            Quickipedia Healthcare
-                        </h1>
+                        <Link to="/" className="flex items-center">
+                            <h1 className="text-xl md:text-2xl font-weight-400 bg-gradient-to-r from-orange-500 to-orange-400 bg-clip-text text-transparent">
+                                Quickipedia Healthcare
+                            </h1>
+                        </Link>
                     </div>
 
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center space-x-1">
                         {navLinks.map((link) => (
-                            <a
+                            <Link
                                 key={link.name}
-                                href={link.href}
+                                to={link.href as any}
                                 className="px-4 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-700/50 rounded-lg transition-all duration-200"
                             >
                                 {link.name}
-                            </a>
+                            </Link>
                         ))}
                     </div>
 
@@ -54,13 +57,14 @@ export default function Navbar() {
                 <div className="md:hidden border-t border-slate-700/50 bg-slate-900/95 backdrop-blur-lg">
                     <div className="px-4 py-3 space-y-1">
                         {navLinks.map((link) => (
-                            <a
+                            <Link
                                 key={link.name}
-                                href={link.href}
+                                to={link.href as any}
+                                onClick={() => setIsMenuOpen(false)}
                                 className="block px-4 py-3 text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-700/50 rounded-lg transition-all duration-200"
                             >
                                 {link.name}
-                            </a>
+                            </Link>
                         ))}
                     </div>
                 </div>
