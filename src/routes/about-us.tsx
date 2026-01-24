@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import { CheckCircle, ShieldCheck, Zap, Activity, Globe, Users, Target, Rocket, Mail, X } from "lucide-react"
 import Navbar from "./-components/navbar/navbar"
 import Footer from "./-components/footer/footer"
