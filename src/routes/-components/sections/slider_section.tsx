@@ -78,19 +78,20 @@ export default function SliderSection() {
                     Transforming Healthcare Pathways with AI
                 </h2>
             </div>
-            <div className="mt-12 flex max-w-6xl mx-auto w-full gap-4">
+            <div className="mt-12 p-3 flex flex-col md:flex-row max-w-6xl mx-auto w-full gap-4">
                 {cards.map((card) => {
                     const isActive = activeId === card.id
                     return (
                         <div
                             key={card.id}
+                            onClick={() => setActiveId(card.id)}
                             onMouseEnter={() => setActiveId(card.id)}
                             onMouseLeave={() => setActiveId(card.id)}
                             className={cn(
                                 "h-110 relative cursor-pointer overflow-hidden rounded-2xl transition-all duration-500 ease-in-out",
                                 isActive
                                     ? `flex-[4] bg-linear-to-r ${card.bg}`
-                                    : "flex-[2] bg-linear-to-r from-[#00827f] to-[#00827f]",
+                                    : `bg-linear-to-r ${card.bg} flex-1 md:flex-[2] md:bg-linear-to-r md:from-[#00827f] md:to-[#00827f]`,
                             )}
                         >
                             {!isActive && (
@@ -103,34 +104,32 @@ export default function SliderSection() {
                                 <div
                                     className={cn(
                                         "mt-4 max-w-md text-sm transition-all duration-300",
-                                        isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4",
+                                        isActive ? "opacity-100 translate-y-0" : "md:opacity-0 md:translate-y-4",
                                     )}
                                 >
                                     {card.description}
                                 </div>
-                                {isActive && (
-                                    <div
-                                        className={cn(
-                                            "mt-4",
-                                            isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4",
-                                        )}
-                                    >
-                                        {card.subSections.map((subSection, index) => (
-                                            <div key={index} className="mb-2">
-                                                <h4 className="text-sm font-semibold">{subSection.title}</h4>
-                                                <ul className="text-sm">
-                                                    {subSection.content.map((item, i) => (
-                                                        <li key={i}>{item}</li>
-                                                    ))}
-                                                </ul>
-                                            </div>
-                                        ))}
-                                    </div>
-                                )}
+                                <div
+                                    className={cn(
+                                        "mt-4",
+                                        isActive ? "opacity-100 translate-y-0" : "md:opacity-0 md:translate-y-4",
+                                    )}
+                                >
+                                    {card.subSections.map((subSection, index) => (
+                                        <div key={index} className="mb-2">
+                                            <h4 className="text-sm font-semibold">{subSection.title}</h4>
+                                            <ul className="text-sm text-muted/60 list-disc list-inside">
+                                                {subSection.content.map((item, i) => (
+                                                    <li key={i}>{item}</li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    ))}
+                                </div>
                                 <button
                                     className={cn(
                                         "mt-6 w-fit rounded-full border border-white/70 px-6 py-2 text-sm transition-all duration-300",
-                                        isActive ? "opacity-100" : "opacity-0",
+                                        isActive ? "opacity-100" : "md:opacity-0",
                                     )}
                                 >
                                     See How
@@ -146,9 +145,15 @@ export default function SliderSection() {
                                 <img
                                     src={card.image.inactive}
                                     alt="Inactive"
-                                    className="absolute inset-0 h-full object-cover transition-all duration-500"
+                                    className="hidden md:block  absolute inset-0 h-full object-cover transition-all duration-500"
                                 />
                             )}
+                            <img
+                                src={card.image.active}
+                                alt="Active"
+                                className="md:hidden absolute bottom-0 right-0 h-full object-cover transition-all duration-500"
+                            />
+
                             <div className="absolute inset-0 bg-black/20" />
                         </div>
                     )
