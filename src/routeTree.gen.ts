@@ -10,13 +10,20 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SolutionsRouteImport } from './routes/solutions'
+import { Route as EngineeringPhilosophyRouteImport } from './routes/engineering-philosophy'
 import { Route as ContactUsRouteImport } from './routes/contact-us'
 import { Route as AboutUsRouteImport } from './routes/about-us'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BlogSilicosisRouteImport } from './routes/blog/silicosis'
 
 const SolutionsRoute = SolutionsRouteImport.update({
   id: '/solutions',
   path: '/solutions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EngineeringPhilosophyRoute = EngineeringPhilosophyRouteImport.update({
+  id: '/engineering-philosophy',
+  path: '/engineering-philosophy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactUsRoute = ContactUsRouteImport.update({
@@ -34,39 +41,71 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogSilicosisRoute = BlogSilicosisRouteImport.update({
+  id: '/blog/silicosis',
+  path: '/blog/silicosis',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about-us': typeof AboutUsRoute
   '/contact-us': typeof ContactUsRoute
+  '/engineering-philosophy': typeof EngineeringPhilosophyRoute
   '/solutions': typeof SolutionsRoute
+  '/blog/silicosis': typeof BlogSilicosisRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about-us': typeof AboutUsRoute
   '/contact-us': typeof ContactUsRoute
+  '/engineering-philosophy': typeof EngineeringPhilosophyRoute
   '/solutions': typeof SolutionsRoute
+  '/blog/silicosis': typeof BlogSilicosisRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about-us': typeof AboutUsRoute
   '/contact-us': typeof ContactUsRoute
+  '/engineering-philosophy': typeof EngineeringPhilosophyRoute
   '/solutions': typeof SolutionsRoute
+  '/blog/silicosis': typeof BlogSilicosisRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about-us' | '/contact-us' | '/solutions'
+  fullPaths:
+    | '/'
+    | '/about-us'
+    | '/contact-us'
+    | '/engineering-philosophy'
+    | '/solutions'
+    | '/blog/silicosis'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about-us' | '/contact-us' | '/solutions'
-  id: '__root__' | '/' | '/about-us' | '/contact-us' | '/solutions'
+  to:
+    | '/'
+    | '/about-us'
+    | '/contact-us'
+    | '/engineering-philosophy'
+    | '/solutions'
+    | '/blog/silicosis'
+  id:
+    | '__root__'
+    | '/'
+    | '/about-us'
+    | '/contact-us'
+    | '/engineering-philosophy'
+    | '/solutions'
+    | '/blog/silicosis'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutUsRoute: typeof AboutUsRoute
   ContactUsRoute: typeof ContactUsRoute
+  EngineeringPhilosophyRoute: typeof EngineeringPhilosophyRoute
   SolutionsRoute: typeof SolutionsRoute
+  BlogSilicosisRoute: typeof BlogSilicosisRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -76,6 +115,13 @@ declare module '@tanstack/react-router' {
       path: '/solutions'
       fullPath: '/solutions'
       preLoaderRoute: typeof SolutionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/engineering-philosophy': {
+      id: '/engineering-philosophy'
+      path: '/engineering-philosophy'
+      fullPath: '/engineering-philosophy'
+      preLoaderRoute: typeof EngineeringPhilosophyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact-us': {
@@ -99,6 +145,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/silicosis': {
+      id: '/blog/silicosis'
+      path: '/blog/silicosis'
+      fullPath: '/blog/silicosis'
+      preLoaderRoute: typeof BlogSilicosisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -106,7 +159,9 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutUsRoute: AboutUsRoute,
   ContactUsRoute: ContactUsRoute,
+  EngineeringPhilosophyRoute: EngineeringPhilosophyRoute,
   SolutionsRoute: SolutionsRoute,
+  BlogSilicosisRoute: BlogSilicosisRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

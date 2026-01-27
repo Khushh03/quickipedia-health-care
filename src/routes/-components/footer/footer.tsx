@@ -19,11 +19,11 @@ const footerSections = [
     {
         title: "Resources",
         links: [
-            { name: "Insights" },
+            { name: "Insights", href: "/blog/silicosis" },
             { name: "News and Press" },
             { name: "Impact" },
             { name: "Evidence" },
-            { name: "Blogs" },
+            { name: "Blogs", href: "/blog/silicosis" },
         ],
     },
     {
@@ -87,10 +87,10 @@ export default function Footer() {
                     <div className="space-y-3">
                         <div className="text-2xl font-bold text-orange-500">Quickipedia Healthcare</div>
                         <div>
-                            <p className="text-sm font-semibold text-slate-300">Qure.ai Technologies Private Limited</p>
+                            <p className="text-sm font-semibold text-slate-300">Quickipedia IT Innovation Pvt Ltd</p>
                             <p className="max-w-xs text-sm text-slate-400">
-                                Qure.ai was founded in 2016. Our mission is to use artificial intelligence to make
-                                healthcare more accessible and affordable.
+                                Quickipedia is a healthcare-focused technology company. Our mission is to build the
+                                technical backbone of modern healthcare systems.
                             </p>
                         </div>
                     </div>
@@ -129,7 +129,9 @@ export default function Footer() {
                             Legal
                         </a>
                     </div>
-                    <p className="text-xs text-slate-500">CCIN U74999MH2016PTC283891 | © 2023 Qure.ai</p>
+                    <p className="text-xs text-slate-500">
+                        © 2026 Quickipedia IT Innovation Pvt Ltd. All Rights Reserved.
+                    </p>
                 </div>
             </div>
         </footer>

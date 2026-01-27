@@ -9,7 +9,7 @@ export default function Navbar() {
         { name: "Home", href: "/" },
         { name: "Solutions", href: "/solutions" },
         { name: "About", href: "/about-us" },
-        { name: "Impact", href: "/#impact" },
+        { name: "Insights", href: "/blog/silicosis" },
         { name: "Contact", href: "/contact-us" },
     ]
 

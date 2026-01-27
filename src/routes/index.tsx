@@ -10,6 +10,7 @@ import DevelopmentApproachSection from "./-components/sections/development_appro
 import ImpactSection from "./-components/sections/impact_section"
 import CtaSection from "./-components/sections/cta_section"
 import AboutUsSection from "./-components/sections/about_us_section"
+import BlogSection from "./-components/sections/blog_section"
 import { Target, Layers, Zap, CheckCircle, Trophy } from "lucide-react"
 
 export const Route = createFileRoute("/")({
@@ -347,6 +348,7 @@ function RouteComponent() {
                     <WhyUsSection {...data.whyUs} />
                     <DevelopmentApproachSection {...data.developmentApproach} />
                     <ImpactSection {...data.impact} />
+                    <BlogSection />
                     <CtaSection {...data.cta} />
                     <AboutUsSection {...data.aboutUs} />
                 </main>
