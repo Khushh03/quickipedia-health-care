@@ -1,4 +1,4 @@
-import { Users, Target, CheckCircle, Layers } from "lucide-react"
+import { Users, Target, CheckCircle, Layers, Activity } from "lucide-react"
 import { ReactNode } from "react"
 
 interface WhyUsSectionProps {
@@ -67,23 +67,45 @@ export default function WhyUsSection({ badge, title, description, differentiator
                     </div>
 
                     <div className="relative">
-                        <div className="relative w-full h-[500px] bg-white/2 backdrop-blur-3xl rounded-[2.5rem] border border-white/10 overflow-hidden p-8 md:p-12 shadow-2xl">
-                            <div className="absolute inset-0 bg-linear-to-tr from-teal-500/10 via-transparent to-[#ff7c5c]/10"></div>
-                            <div className="absolute -top-20 -right-20 w-60 h-60 bg-teal-500/20 rounded-full blur-[80px]"></div>
+                        <div className="relative w-full h-[550px] bg-white/2 backdrop-blur-3xl rounded-[3rem] border border-white/10 overflow-hidden shadow-2xl group">
+                            <div className="absolute inset-0">
+                                <img
+                                    src="/assets/blog/global-healthcare-bg.png"
+                                    alt="Healthcare Technology"
+                                    className="w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-700"
+                                />
+                                <div className="absolute inset-0 bg-linear-to-tr from-background via-transparent to-teal-500/10"></div>
+                            </div>
 
-                            <div className="relative z-10 h-full flex flex-col justify-between">
-                                <div className="grid grid-cols-2 gap-6">
-                                    {[...Array(4)].map((_, i) => (
-                                        <div
-                                            key={i}
-                                            className="h-28 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-md shadow-xl flex items-center justify-center group hover:bg-white/10 transition-colors"
-                                        >
-                                            <div className="w-12 h-1 bg-teal-500/20 rounded-full overflow-hidden">
-                                                <div className="w-1/2 h-full bg-teal-400 animate-[shimmer_2s_infinite]"></div>
+                            <div className="relative z-10 h-full p-8 md:p-12 flex flex-col justify-between">
+                                <div className="space-y-6">
+                                    {/* Floating AI Card */}
+                                    <div className="w-56 p-4 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl animate-float">
+                                        <div className="flex items-center gap-3 mb-3">
+                                            <div className="w-8 h-8 rounded-full bg-teal-500/20 flex items-center justify-center">
+                                                <Activity size={16} className="text-teal-400" />
                                             </div>
+                                            <span className="text-xs font-bold text-white uppercase tracking-widest">
+                                                AI Analysis
+                                            </span>
                                         </div>
-                                    ))}
+                                        <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+                                            <div className="w-3/4 h-full bg-teal-400"></div>
+                                        </div>
+                                        <p className="text-[10px] text-gray-400 mt-2">
+                                            High-confidence detection verified
+                                        </p>
+                                    </div>
+
+                                    {/* Floating Data Card */}
+                                    <div className="w-48 p-4 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl animate-float-delayed self-end ml-auto">
+                                        <div className="text-2xl font-light text-white mb-1">99.9%</div>
+                                        <div className="text-[10px] text-teal-400 font-bold uppercase tracking-widest">
+                                            System Uptime
+                                        </div>
+                                    </div>
                                 </div>
+
                                 <div className="text-center pt-8 border-t border-white/10">
                                     <p className="text-teal-400 font-light text-lg tracking-wide">
                                         Healthcare-Grade Technology Platform
@@ -104,6 +126,9 @@ export default function WhyUsSection({ badge, title, description, differentiator
                                 </div>
                             </div>
                         </div>
+
+                        {/* Decorative Outer Ring */}
+                        <div className="absolute -inset-4 border border-teal-500/5 rounded-[3.5rem] -z-10 animate-pulse"></div>
                     </div>
                 </div>
             </div>
