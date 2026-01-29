@@ -12,7 +12,7 @@ export default function PartnersCarouselSection() {
     ]
 
     return (
-        <section className="relative py-12 bg-gradient-to-br from-background via-muted to-background border-t border-border overflow-hidden">
+        <section className="relative py-12 bg-background border-t border-white/5 overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Carousel Container */}
                 <div className="relative overflow-hidden">

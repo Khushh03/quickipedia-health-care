@@ -72,13 +72,16 @@ export default function SliderSection() {
     const [activeId, setActiveId] = useState<number | null>(1)
 
     return (
-        <div className="bg-[#0f2332] py-24">
-            <div>
-                <h2 className="text-2xl font-bold text-[#00827f] text-center">
-                    Transforming Healthcare Pathways with AI
+        <div className="bg-background py-24 border-t border-white/5 relative overflow-hidden">
+            {/* Animated Background Highlights */}
+            <div className="absolute top-0 right-1/2 w-[600px] h-[600px] bg-teal-500/5 rounded-full blur-[120px] animate-pulse" />
+
+            <div className="relative z-10">
+                <h2 className="text-4xl md:text-5xl font-light text-white text-center tracking-tight">
+                    Transforming Healthcare <span className="text-teal-400">Pathways with AI</span>
                 </h2>
             </div>
-            <div className="mt-12 p-3 flex flex-col md:flex-row max-w-6xl mx-auto w-full gap-4">
+            <div className="relative z-10 mt-16 p-3 flex flex-col md:flex-row max-w-7xl mx-auto w-full gap-4">
                 {cards.map((card) => {
                     const isActive = activeId === card.id
                     return (

@@ -7,15 +7,17 @@ export default function BlogSection() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                     {/* Left Column: Social Feed */}
-                    <div className="lg:col-span-5 h-[600px] bg-card rounded-2xl border border-border shadow-sm overflow-hidden flex flex-col">
-                        <div className="p-4 border-b border-border flex justify-between items-center bg-muted/30">
-                            <div className="flex items-center gap-2">
-                                <div className="w-10 h-10 rounded-full overflow-hidden border border-border bg-white flex items-center justify-center">
-                                    <span className="text-primary font-bold text-xl leading-none">Q</span>
+                    <div className="lg:col-span-5 h-[600px] bg-white/2 rounded-3xl border border-white/10 shadow-2xl overflow-hidden flex flex-col backdrop-blur-md">
+                        <div className="p-5 border-b border-white/10 flex justify-between items-center bg-white/5">
+                            <div className="flex items-center gap-3">
+                                <div className="w-12 h-12 rounded-full overflow-hidden border border-teal-500/30 bg-background flex items-center justify-center shadow-inner">
+                                    <span className="text-teal-400 font-light text-2xl leading-none">Q</span>
                                 </div>
                                 <div>
-                                    <h3 className="text-sm font-bold leading-tight">Quickipedia IT Innovation</h3>
-                                    <div className="flex items-center gap-1 text-[10px] text-muted-foreground uppercase tracking-wider">
+                                    <h3 className="text-sm font-bold leading-tight text-white">
+                                        Quickipedia IT Innovation
+                                    </h3>
+                                    <div className="flex items-center gap-1 text-[10px] text-gray-500 uppercase tracking-widest font-bold">
                                         <span>@Quickipedia_Tech</span>
                                         <span>•</span>
                                         <span>Just now</span>

@@ -7,11 +7,23 @@ import SliderSection from "./-components/sections/slider_section"
 import DomainsSection from "./-components/sections/domains_section"
 import WhyUsSection from "./-components/sections/why_us_section"
 import DevelopmentApproachSection from "./-components/sections/development_approach_section"
-import ImpactSection from "./-components/sections/impact_section"
+// import ImpactSection from "./-components/sections/impact_section"
 import CtaSection from "./-components/sections/cta_section"
 import AboutUsSection from "./-components/sections/about_us_section"
 import BlogSection from "./-components/sections/blog_section"
-import { Target, Layers, Zap, CheckCircle, Trophy } from "lucide-react"
+import {
+    Target,
+    Layers,
+    Zap,
+    CheckCircle,
+    Trophy,
+    Scan,
+    Heart,
+    FlaskConical,
+    Building2,
+    Pill,
+    Activity,
+} from "lucide-react"
 
 export const Route = createFileRoute("/")({
     component: RouteComponent,
@@ -92,12 +104,36 @@ const data = {
         title: "Healthcare Domains We Specialize In",
         subtitle: "Deep expertise across critical healthcare specializations",
         domains: [
-            "Radiology & Imaging",
-            "Cardiology",
-            "Pathology & Labs",
-            "Hospital Operations",
-            "Pharma & Clinical Research",
-            "Primary & Preventive Care",
+            {
+                title: "Radiology & Imaging",
+                description: "AI-powered detection and triage for X-ray, CT, MRI and Ultrasound.",
+                icon: <Scan size={24} />,
+            },
+            {
+                title: "Cardiology",
+                description: "Automated ECG analysis and cardiac measurement tools.",
+                icon: <Heart size={24} />,
+            },
+            {
+                title: "Pathology & Labs",
+                description: "Digital pathology workflows and intelligent lab information systems.",
+                icon: <FlaskConical size={24} />,
+            },
+            {
+                title: "Hospital Operations",
+                description: "Optimizing workflows and resource management with smart software.",
+                icon: <Building2 size={24} />,
+            },
+            {
+                title: "Pharma & Research",
+                description: "Data-driven research tools and clinical trial management platforms.",
+                icon: <Pill size={24} />,
+            },
+            {
+                title: "Primary Care",
+                description: "Comprehensive patient management and preventive care solutions.",
+                icon: <Activity size={24} />,
+            },
         ],
     },
     whyUs: {
@@ -347,7 +383,7 @@ function RouteComponent() {
                     <DomainsSection {...data.domains} />
                     <WhyUsSection {...data.whyUs} />
                     <DevelopmentApproachSection {...data.developmentApproach} />
-                    <ImpactSection {...data.impact} />
+                    {/* <ImpactSection {...data.impact} /> */}
                     <BlogSection />
                     <CtaSection {...data.cta} />
                     <AboutUsSection {...data.aboutUs} />

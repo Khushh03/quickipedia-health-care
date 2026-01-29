@@ -38,26 +38,6 @@ interface AboutUsSectionProps {
         principlesIntro: string
         principles: string[]
     }
-    howWeWork: {
-        title: string
-        approach: {
-            title: string
-            description: string
-            items: string[]
-        }
-        commitment: {
-            title: string
-            description: string
-            engagementIntro: string
-            items: string[]
-        }
-    }
-    vision: {
-        title: string
-        description: string
-        futurePoints: string[]
-        longTerm: string
-    }
     summary: {
         title: string
         description: string
@@ -79,112 +59,138 @@ export default function AboutUsSection({
     whoWeWorkWith,
     whatWeBuild,
     philosophy,
-    howWeWork,
-    vision,
     summary,
     finalCta,
 }: AboutUsSectionProps) {
     return (
-        <section className="relative py-20 bg-background border-t border-border/50">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="relative py-24 bg-background overflow-hidden border-t border-white/5">
+            {/* Animated Background Highlights */}
+            <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-teal-500/5 rounded-full blur-[120px] animate-pulse" />
+            <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-[#ff7c5c]/5 rounded-full blur-[120px] animate-pulse delay-1000" />
+
+            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Intro */}
-                <div className="grid md:grid-cols-2 gap-12 items-center">
-                    <div className="space-y-6">
-                        <div className="inline-block px-4 py-2 bg-primary/10 rounded-full">
-                            <span className="text-sm font-semibold text-primary">{intro.badge}</span>
+                <div className="grid md:grid-cols-2 gap-16 items-center">
+                    <div className="space-y-8">
+                        <div className="inline-block px-4 py-2 bg-[#ff7c5c]/10 rounded-full border border-[#ff7c5c]/20">
+                            <span className="text-sm font-semibold text-[#ff7c5c] tracking-wide uppercase">
+                                {intro.badge}
+                            </span>
                         </div>
-                        <h2 className="text-4xl md:text-5xl font-bold text-foreground leading-tight">{intro.title}</h2>
-                        {intro.paragraphs.map((paragraph, idx) => (
-                            <p key={idx} className="text-lg text-muted-foreground leading-relaxed">
-                                {paragraph}
-                            </p>
-                        ))}
-                        <p className="text-lg text-primary font-medium leading-relaxed">{intro.highlight}</p>
+                        <h2 className="text-4xl md:text-6xl font-light text-white leading-tight tracking-tight">
+                            {intro.title}
+                        </h2>
+                        <div className="space-y-6">
+                            {intro.paragraphs.map((paragraph, idx) => (
+                                <p key={idx} className="text-xl text-gray-400 leading-relaxed font-light">
+                                    {paragraph}
+                                </p>
+                            ))}
+                        </div>
+                        <p className="text-xl text-teal-400 font-light leading-relaxed border-l-2 border-teal-500/50 pl-6 italic">
+                            {intro.highlight}
+                        </p>
                     </div>
 
-                    <div className="space-y-8">
+                    <div className="grid gap-8">
                         {/* Our Focus */}
-                        <div className="p-6 rounded-xl border border-border/50 bg-muted/30">
-                            <h3 className="text-xl font-bold text-foreground mb-4">{focus.title}</h3>
-                            <p className="text-muted-foreground leading-relaxed mb-4">{focus.description}</p>
-                            <ul className="space-y-2">
+                        <div className="p-8 rounded-4xl border border-white/10 bg-white/3 backdrop-blur-md hover:bg-white/5 transition-all duration-500 shadow-2xl group">
+                            <h3 className="text-2xl font-light text-white mb-6 tracking-tight group-hover:text-teal-400 transition-colors">
+                                {focus.title}
+                            </h3>
+                            <p className="text-gray-400 font-light leading-relaxed mb-6">{focus.description}</p>
+                            <ul className="grid grid-cols-2 gap-4 mb-8">
                                 {focus.impacts.map((item, idx) => (
-                                    <li key={idx} className="flex items-start gap-2 text-muted-foreground">
-                                        <span className="text-primary mt-1">•</span>
+                                    <li key={idx} className="flex items-center gap-3 text-sm text-gray-300">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-teal-500 shadow-[0_0_8px_rgba(20,184,166,0.6)]" />
                                         {item}
                                     </li>
                                 ))}
                             </ul>
-                            <p className="text-muted-foreground leading-relaxed mt-4">{focus.decision}</p>
-                            <p className="text-primary font-medium mt-2">{focus.decisionHighlight}</p>
-                            <p className="text-muted-foreground leading-relaxed mt-2">{focus.understanding}</p>
-                            <ul className="space-y-2 mt-2">
-                                {focus.understandingItems.map((item, idx) => (
-                                    <li key={idx} className="flex items-start gap-2 text-muted-foreground">
-                                        <span className="text-primary mt-1">•</span>
-                                        {item}
-                                    </li>
-                                ))}
-                            </ul>
-                            <p className="text-muted-foreground leading-relaxed mt-4">{focus.conclusion}</p>
+                            <div className="space-y-4 pt-6 border-t border-white/5">
+                                <p className="text-gray-400 font-light">{focus.decision}</p>
+                                <p className="text-[#ff7c5c] font-medium tracking-wide uppercase text-sm">
+                                    {focus.decisionHighlight}
+                                </p>
+                                <p className="text-gray-500 text-sm font-light mt-4 italic">{focus.conclusion}</p>
+                            </div>
                         </div>
 
                         {/* Who We Work With */}
-                        <div className="p-6 rounded-xl border border-border/50 bg-muted/30">
-                            <h3 className="text-xl font-bold text-foreground mb-4">{whoWeWorkWith.title}</h3>
-                            <p className="text-muted-foreground leading-relaxed mb-4">{whoWeWorkWith.description}</p>
-                            <ul className="space-y-2">
+                        <div className="p-8 rounded-4xl border border-white/10 bg-white/3 backdrop-blur-md hover:bg-white/5 transition-all duration-500 shadow-2xl group">
+                            <h3 className="text-2xl font-light text-white mb-6 tracking-tight group-hover:text-[#ff7c5c] transition-colors">
+                                {whoWeWorkWith.title}
+                            </h3>
+                            <ul className="space-y-3">
                                 {whoWeWorkWith.organizations.map((item, idx) => (
-                                    <li key={idx} className="flex items-start gap-2 text-muted-foreground">
-                                        <span className="text-primary mt-1">•</span>
+                                    <li key={idx} className="flex items-center gap-3 text-gray-300 font-light">
+                                        <div className="w-8 h-8 rounded-lg bg-[#ff7c5c]/10 flex items-center justify-center text-[#ff7c5c]">
+                                            <span className="text-xs font-bold">✓</span>
+                                        </div>
                                         {item}
                                     </li>
                                 ))}
                             </ul>
-                            <p className="text-muted-foreground leading-relaxed mt-4">{whoWeWorkWith.clientNote}</p>
-                            <p className="text-primary font-medium mt-2">{whoWeWorkWith.clientHighlight}</p>
+                            <div className="mt-8 p-4 bg-white/5 rounded-xl border border-white/10">
+                                <p className="text-xs text-gray-500 uppercase tracking-widest mb-2 font-bold">Note</p>
+                                <p className="text-[#ff7c5c] text-sm font-medium">{whoWeWorkWith.clientHighlight}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 {/* What We Build */}
-                <div className="mt-16">
-                    <h2 className="text-4xl md:text-5xl font-bold text-foreground text-center mb-8">
-                        {whatWeBuild.title}
-                    </h2>
-                    <div className="grid md:grid-cols-2 gap-6">
+                <div className="mt-32">
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl md:text-5xl font-light text-white tracking-tight mb-4">
+                            {whatWeBuild.title}
+                        </h2>
+                        <div className="w-24 h-1 bg-linear-to-r from-teal-500 to-[#ff7c5c] mx-auto rounded-full" />
+                    </div>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {whatWeBuild.items.map((item, idx) => (
                             <div
                                 key={idx}
-                                className="p-6 rounded-xl border border-border/50 bg-background hover:bg-primary/5 transition-all duration-300"
+                                className="group p-8 rounded-4xl border border-white/10 bg-white/2 hover:bg-white/4 hover:border-teal-500/30 transition-all duration-500"
                             >
-                                <h3 className="text-xl font-bold text-foreground mb-2">{item.title}</h3>
-                                <p className="text-muted-foreground leading-relaxed">{item.description}</p>
+                                <div className="text-teal-400 mb-6 font-mono text-sm tracking-tighter opacity-50">
+                                    0{idx + 1} // Building
+                                </div>
+                                <h3 className="text-xl font-light text-white mb-4 tracking-tight group-hover:text-teal-400 transition-colors">
+                                    {item.title}
+                                </h3>
+                                <p className="text-gray-500 font-light leading-relaxed">{item.description}</p>
                             </div>
                         ))}
                     </div>
                 </div>
 
                 {/* Our Philosophy */}
-                <div className="mt-16">
-                    <h2 className="text-4xl md:text-5xl font-bold text-foreground text-center mb-8">
-                        {philosophy.title}
-                    </h2>
-                    <div className="grid md:grid-cols-3 gap-6">
+                <div className="mt-32 relative py-20">
+                    <div className="absolute inset-0 bg-teal-500/2 rounded-3xl -rotate-1" />
+                    <div className="relative z-10 text-center mb-16">
+                        <h2 className="text-4xl md:text-5xl font-light text-white tracking-tight mb-4">
+                            {philosophy.title}
+                        </h2>
+                    </div>
+                    <div className="grid md:grid-cols-5 gap-4">
                         {philosophy.beliefs.map((item, idx) => (
                             <div
                                 key={idx}
-                                className="p-6 rounded-xl border border-primary/30 bg-primary/10 text-center"
+                                className="p-6 rounded-2xl border border-teal-500/20 bg-teal-500/5 text-center group hover:bg-teal-500/10 transition-all duration-300"
                             >
-                                <span className="font-semibold text-primary">{item}</span>
+                                <span className="text-sm font-light text-teal-300 tracking-wide">{item}</span>
                             </div>
                         ))}
                     </div>
-                    <div className="mt-8 text-center">
-                        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{philosophy.principlesIntro}</p>
-                        <div className="flex flex-wrap justify-center gap-6 mt-4">
+                    <div className="mt-16 text-center max-w-3xl mx-auto">
+                        <p className="text-xl text-gray-400 font-light mb-8 italic">{philosophy.principlesIntro}</p>
+                        <div className="flex flex-wrap justify-center gap-6">
                             {philosophy.principles.map((item, idx) => (
-                                <span key={idx} className="px-4 py-2 bg-muted rounded-lg font-medium">
+                                <span
+                                    key={idx}
+                                    className="px-6 py-3 bg-white/5 border border-white/10 rounded-full text-white font-light tracking-wide hover:border-[#ff7c5c]/50 transition-colors"
+                                >
                                     {item}
                                 </span>
                             ))}
@@ -192,109 +198,28 @@ export default function AboutUsSection({
                     </div>
                 </div>
 
-                {/* How We Work */}
-                <div className="mt-16">
-                    <h2 className="text-4xl md:text-5xl font-bold text-foreground text-center mb-8">
-                        {howWeWork.title}
-                    </h2>
-                    <div className="bg-muted/30 rounded-2xl p-8 md:p-12 border border-border/50">
-                        <div className="grid md:grid-cols-2 gap-8">
-                            <div>
-                                <h3 className="text-2xl font-bold text-foreground mb-4">{howWeWork.approach.title}</h3>
-                                <p className="text-muted-foreground leading-relaxed mb-6">
-                                    {howWeWork.approach.description}
-                                </p>
-                                <ul className="space-y-3">
-                                    {howWeWork.approach.items.map((item, idx) => (
-                                        <li key={idx} className="flex items-center gap-3">
-                                            <span className="w-2 h-2 rounded-full bg-primary" />
-                                            <span className="text-muted-foreground">{item}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                            <div>
-                                <h3 className="text-2xl font-bold text-foreground mb-4">
-                                    {howWeWork.commitment.title}
-                                </h3>
-                                <p className="text-muted-foreground leading-relaxed mb-6">
-                                    {howWeWork.commitment.description}
-                                </p>
-                                <p className="text-muted-foreground leading-relaxed mb-6">
-                                    {howWeWork.commitment.engagementIntro}
-                                </p>
-                                <ul className="space-y-3">
-                                    {howWeWork.commitment.items.map((item, idx) => (
-                                        <li key={idx} className="flex items-center gap-3">
-                                            <span className="w-2 h-2 rounded-full bg-primary" />
-                                            <span className="text-muted-foreground">{item}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Our Vision */}
-                <div className="mt-16">
-                    <h2 className="text-4xl md:text-5xl font-bold text-foreground text-center mb-8">{vision.title}</h2>
-                    <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 p-8 md:p-12 border border-primary/30">
-                        <div className="relative z-10">
-                            <p className="text-xl text-foreground font-medium text-center mb-8">{vision.description}</p>
-                            <div className="grid md:grid-cols-2 gap-6">
-                                {vision.futurePoints.map((item, idx) => (
-                                    <div key={idx} className="flex items-center gap-3">
-                                        <span className="w-3 h-3 rounded-full bg-primary" />
-                                        <span className="text-foreground font-medium">{item}</span>
-                                    </div>
-                                ))}
-                            </div>
-                            <p className="text-lg text-muted-foreground text-center mt-8 leading-relaxed">
-                                {vision.longTerm}
+                {/* Final CTA */}
+                <div className="mt-32 text-center relative py-24 px-8 overflow-hidden rounded-[3rem] border border-white/10">
+                    <div className="absolute inset-0 bg-linear-to-br from-teal-500/10 via-background to-[#ff7c5c]/10" />
+                    <div className="relative z-10">
+                        <h2 className="text-3xl md:text-6xl font-light text-white mb-8 tracking-tight">
+                            {finalCta.title}
+                        </h2>
+                        <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-12 font-light leading-relaxed">
+                            {finalCta.description}
+                        </p>
+                        <button className="px-10 py-5 bg-teal-500 hover:bg-teal-600 text-white font-bold rounded-2xl shadow-2xl shadow-teal-500/20 transition-all duration-300 hover:-translate-y-1 flex items-center gap-3 mx-auto uppercase tracking-widest text-xs">
+                            <Zap size={18} fill="currentColor" />
+                            {finalCta.buttonText}
+                        </button>
+                        <div className="mt-16 pt-16 border-t border-white/10">
+                            <p className="text-4xl font-light text-white tracking-tighter mb-2 italic">
+                                {finalCta.companyName}
+                            </p>
+                            <p className="text-teal-400 font-medium tracking-[0.3em] uppercase text-[10px]">
+                                {finalCta.tagline}
                             </p>
                         </div>
-                    </div>
-                </div>
-
-                {/* About Quickipedia Summary */}
-                <div className="mt-16">
-                    <div className="bg-muted/50 rounded-2xl p-8 md:p-12 border border-border/50">
-                        <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-8">
-                            {summary.title}
-                        </h2>
-                        <p className="text-lg text-muted-foreground text-center leading-relaxed mb-8 max-w-3xl mx-auto">
-                            {summary.description}
-                        </p>
-                        <div className="grid md:grid-cols-3 gap-4">
-                            {summary.specializations.map((item, idx) => (
-                                <div
-                                    key={idx}
-                                    className="p-4 bg-background rounded-lg border border-border/50 text-center"
-                                >
-                                    <span className="font-semibold text-foreground">{item}</span>
-                                </div>
-                            ))}
-                        </div>
-                        <p className="text-lg text-muted-foreground text-center mt-8 leading-relaxed">
-                            {summary.closing}
-                        </p>
-                    </div>
-                </div>
-
-                {/* Final CTA */}
-                <div className="mt-16 text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">{finalCta.title}</h2>
-                    <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
-                        {finalCta.description}
-                    </p>
-                    <button className="px-8 py-4 bg-gradient-to-r from-primary to-secondary text-primary-foreground font-semibold rounded-lg hover:shadow-lg hover:shadow-primary/50 transition-all duration-300 inline-flex items-center gap-2">
-                        <Zap size={20} />
-                        {finalCta.buttonText}
-                    </button>
-                    <div className="mt-6">
-                        <p className="text-2xl font-bold text-foreground">{finalCta.companyName}</p>
-                        <p className="text-primary font-medium">{finalCta.tagline}</p>
                     </div>
                 </div>
             </div>

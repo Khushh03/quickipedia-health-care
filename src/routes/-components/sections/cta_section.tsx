@@ -25,10 +25,10 @@ export default function CtaSection({ title, description, buttons }: CtaSectionPr
     }
 
     return (
-        <section className="relative py-20 bg-linear-to-r from-primary to-secondary overflow-hidden">
+        <section className="relative py-24 bg-linear-to-br from-teal-500 to-[#ff7c5c]/80 overflow-hidden border-t border-white/10">
             <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute top-20 right-10 w-72 h-72 bg-white/10 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-                <div className="absolute -bottom-8 left-20 w-72 h-72 bg-white/20 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+                <div className="absolute top-20 right-10 w-96 h-96 bg-white/10 rounded-full mix-blend-overlay filter blur-[100px] opacity-30 animate-blob"></div>
+                <div className="absolute -bottom-20 left-20 w-96 h-96 bg-teal-400/20 rounded-full mix-blend-overlay filter blur-[100px] opacity-30 animate-blob animation-delay-2000"></div>
             </div>
 
             <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

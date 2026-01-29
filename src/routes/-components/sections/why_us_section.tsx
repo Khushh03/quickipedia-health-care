@@ -29,25 +29,37 @@ export default function WhyUsSection({ badge, title, description, differentiator
     }
 
     return (
-        <section className="relative py-20 bg-background border-t border-border/50">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid md:grid-cols-2 gap-12 items-center">
-                    <div className="space-y-6">
-                        <div className="inline-block px-4 py-2 bg-primary/10 rounded-full">
-                            <span className="text-sm font-semibold text-primary">{badge}</span>
-                        </div>
-                        <h2 className="text-4xl md:text-5xl font-bold text-foreground leading-tight">{title}</h2>
-                        <p className="text-lg text-muted-foreground leading-relaxed">{description}</p>
+        <section className="relative py-24 bg-background overflow-hidden border-t border-white/5">
+            {/* Animated Background Highlights */}
+            <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-teal-500/5 rounded-full blur-[120px] animate-pulse" />
+            <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-[#ff7c5c]/5 rounded-full blur-[120px] animate-pulse delay-1000" />
 
-                        <div className="space-y-4 pt-4">
+            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="grid md:grid-cols-2 gap-16 items-center">
+                    <div className="space-y-8">
+                        <div className="inline-block px-4 py-2 bg-[#ff7c5c]/10 rounded-full border border-[#ff7c5c]/20">
+                            <span className="text-sm font-semibold text-[#ff7c5c] tracking-wide uppercase">
+                                {badge}
+                            </span>
+                        </div>
+                        <h2 className="text-4xl md:text-6xl font-light text-white leading-tight tracking-tight">
+                            {title}
+                        </h2>
+                        <p className="text-xl text-gray-400 leading-relaxed font-light">{description}</p>
+
+                        <div className="space-y-6 pt-6">
                             {differentiators.map((item, idx) => (
-                                <div key={idx} className="flex items-start gap-4">
-                                    <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0">
+                                <div key={idx} className="flex items-start gap-5 group">
+                                    <div className="w-14 h-14 rounded-2xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-inner">
                                         {getIcon(item.icon)}
                                     </div>
-                                    <div>
-                                        <h3 className="font-semibold text-foreground">{item.title}</h3>
-                                        <p className="text-sm text-muted-foreground">{item.description}</p>
+                                    <div className="pt-1">
+                                        <h3 className="text-xl font-light text-white tracking-tight group-hover:text-teal-400 transition-colors">
+                                            {item.title}
+                                        </h3>
+                                        <p className="text-[15px] text-gray-500 mt-1 font-light leading-relaxed">
+                                            {item.description}
+                                        </p>
                                     </div>
                                 </div>
                             ))}
@@ -55,22 +67,40 @@ export default function WhyUsSection({ badge, title, description, differentiator
                     </div>
 
                     <div className="relative">
-                        <div className="relative w-full h-96 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl border border-primary/30 overflow-hidden p-8">
-                            <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
-                            <div className="relative z-10 space-y-6">
-                                <div className="grid grid-cols-2 gap-4">
+                        <div className="relative w-full h-[500px] bg-white/2 backdrop-blur-3xl rounded-[2.5rem] border border-white/10 overflow-hidden p-8 md:p-12 shadow-2xl">
+                            <div className="absolute inset-0 bg-linear-to-tr from-teal-500/10 via-transparent to-[#ff7c5c]/10"></div>
+                            <div className="absolute -top-20 -right-20 w-60 h-60 bg-teal-500/20 rounded-full blur-[80px]"></div>
+
+                            <div className="relative z-10 h-full flex flex-col justify-between">
+                                <div className="grid grid-cols-2 gap-6">
                                     {[...Array(4)].map((_, i) => (
                                         <div
                                             key={i}
-                                            className="h-24 bg-gradient-to-br from-background to-muted rounded-lg border border-primary/30 backdrop-blur-sm"
-                                        />
+                                            className="h-28 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-md shadow-xl flex items-center justify-center group hover:bg-white/10 transition-colors"
+                                        >
+                                            <div className="w-12 h-1 bg-teal-500/20 rounded-full overflow-hidden">
+                                                <div className="w-1/2 h-full bg-teal-400 animate-[shimmer_2s_infinite]"></div>
+                                            </div>
+                                        </div>
                                     ))}
                                 </div>
-                                <div className="text-center">
-                                    <p className="text-primary font-medium">Healthcare-Grade Technology Platform</p>
-                                    <p className="text-sm text-muted-foreground mt-1">
-                                        Compliant, Secure, and Reliable
+                                <div className="text-center pt-8 border-t border-white/10">
+                                    <p className="text-teal-400 font-light text-lg tracking-wide">
+                                        Healthcare-Grade Technology Platform
                                     </p>
+                                    <div className="flex items-center justify-center gap-4 mt-3">
+                                        <span className="text-xs text-gray-500 font-medium tracking-widest uppercase">
+                                            Compliant
+                                        </span>
+                                        <span className="w-1 h-1 bg-gray-700 rounded-full"></span>
+                                        <span className="text-xs text-gray-500 font-medium tracking-widest uppercase">
+                                            Secure
+                                        </span>
+                                        <span className="w-1 h-1 bg-gray-700 rounded-full"></span>
+                                        <span className="text-xs text-gray-500 font-medium tracking-widest uppercase">
+                                            Reliable
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -8,7 +8,7 @@ export default function HeroSection() {
                 <div className="absolute inset-0 z-0 bg-linear-to-tr from-[#020d1a] via-transparent to-teal-500/5"></div>
 
                 {/* Content */}
-                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-20">
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         {/* Left Content */}
                         <div className="space-y-8">
