@@ -74,30 +74,30 @@ export default function SliderSection({ slides }: SliderSectionProps) {
                                     )}
                                 >
                                     <div className="mb-4">
-                                        <h4 className="text-sm font-semibold text-teal-400 mb-2 uppercase tracking-wider">
+                                        <h4 className="text-[10px] font-bold text-teal-400 mb-1.5 uppercase tracking-widest opacity-80">
                                             Key Features
                                         </h4>
-                                        <ul className="text-sm text-gray-200/90 space-y-1.5">
-                                            {card.keyCapabilities.slice(0, 3).map((item, i) => (
+                                        <ul className="text-[12px] text-gray-200/90 space-y-1">
+                                            {card.keyCapabilities.slice(0, 4).map((item, i) => (
                                                 <li key={i} className="flex items-start gap-2">
-                                                    <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-teal-500" />
+                                                    <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-teal-500 shadow-[0_0_5px_rgba(20,184,166,0.4)]" />
                                                     {item}
                                                 </li>
                                             ))}
                                         </ul>
                                     </div>
                                     <div className="mb-2">
-                                        <h4 className="text-sm font-semibold text-teal-400 mb-1 uppercase tracking-wider">
+                                        <h4 className="text-[10px] font-bold text-teal-400 mb-0.5 uppercase tracking-widest opacity-80">
                                             Use Cases
                                         </h4>
-                                        <p className="text-sm text-gray-200/90 leading-relaxed">
+                                        <p className="text-[12px] text-gray-200/90 leading-relaxed">
                                             {Array.isArray(card.useCases) ? card.useCases.join(", ") : card.useCases}
                                         </p>
                                     </div>
                                 </div>
                                 <button
                                     className={cn(
-                                        "mt-6 w-fit rounded-full border border-teal-400/50 bg-teal-400/5 px-6 py-2 text-sm font-medium text-teal-400 transition-all duration-300 hover:bg-teal-400 hover:text-white",
+                                        "mt-4 w-fit rounded-full border border-teal-400/50 bg-teal-400/5 px-6 py-2 text-sm font-medium text-teal-400 transition-all duration-300 hover:bg-teal-400 hover:text-white",
                                         isActive ? "opacity-100" : "md:opacity-0",
                                     )}
                                 >
