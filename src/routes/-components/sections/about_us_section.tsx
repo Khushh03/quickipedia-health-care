@@ -38,12 +38,6 @@ interface AboutUsSectionProps {
         principlesIntro: string
         principles: string[]
     }
-    summary: {
-        title: string
-        description: string
-        specializations: string[]
-        closing: string
-    }
     finalCta: {
         title: string
         description: string
@@ -59,7 +53,6 @@ export default function AboutUsSection({
     whoWeWorkWith,
     whatWeBuild,
     philosophy,
-    summary,
     finalCta,
 }: AboutUsSectionProps) {
     return (

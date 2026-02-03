@@ -1,4 +1,17 @@
-export default function HeroSection() {
+import { cn } from "@/lib/utils"
+
+interface HeroSectionProps {
+    title: string
+    subtitle: string
+    description: string
+    ctas: {
+        text: string
+        variant: "primary" | "secondary"
+        icon: "zap" | "chevron"
+    }[]
+}
+
+export default function HeroSection({ title, subtitle, description, ctas }: HeroSectionProps) {
     return (
         <div className="w-full">
             {/* Hero Section */}
@@ -13,21 +26,26 @@ export default function HeroSection() {
                         {/* Left Content */}
                         <div className="space-y-8">
                             <h1 className="text-4xl md:text-7xl font-light text-white leading-tight">
-                                Innovating
-                                <span className="lg:block"> Healthcare with </span>
-                                <span className="text-teal-400 font-normal">AI-Powered Technology</span>
+                                {title.split(" ").slice(0, 1)}
+                                <span className="lg:block"> {title.split(" ").slice(1, 4).join(" ")} </span>
+                                <span className="text-teal-400 font-normal">{title.split(" ").slice(4).join(" ")}</span>
                             </h1>
-                            <p className="text-lg text-gray-400 max-w-xl">
-                                Delivering the world's most adopted healthcare AI solutions, empowering clinicians with
-                                real-time insights and automated diagnostic support.
-                            </p>
+                            <p className="text-teal-400/80 font-medium tracking-wide uppercase text-sm">{subtitle}</p>
+                            <p className="text-lg text-gray-400 max-w-xl">{description}</p>
                             <div className="flex flex-wrap gap-4">
-                                <button className="px-8 py-4 bg-teal-500 hover:bg-teal-600 text-white font-medium rounded-xl transition-all duration-300 shadow-lg shadow-teal-500/20">
-                                    Talk to Our Experts
-                                </button>
-                                <button className="px-8 py-4 bg-white/5 hover:bg-white/10 text-white font-medium rounded-xl transition-all duration-300 border border-white/10 backdrop-blur-sm">
-                                    View Solutions
-                                </button>
+                                {ctas.map((cta, index) => (
+                                    <button
+                                        key={index}
+                                        className={cn(
+                                            "px-8 py-4 font-medium rounded-xl transition-all duration-300",
+                                            cta.variant === "primary"
+                                                ? "bg-teal-500 hover:bg-teal-600 text-white shadow-lg shadow-teal-500/20"
+                                                : "bg-white/5 hover:bg-white/10 text-white border border-white/10 backdrop-blur-sm",
+                                        )}
+                                    >
+                                        {cta.text}
+                                    </button>
+                                ))}
                             </div>
                             {/* Statistics */}
                             <div className="grid grid-cols-2 md:flex md:gap-12 pt-8 border-t border-white/10 mt-12 gap-y-8">

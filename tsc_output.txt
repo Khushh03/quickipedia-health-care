@@ -1,0 +1,2 @@
+src/routes/-components/sections/about_us_section.tsx(62,5): error TS6133: 'summary' is declared but its value is never read.
+src/routes/index.tsx(403,22): error TS2559: Type '{ title: string; subtitle: string; description: string; ctas: ({ text: string; variant: "primary"; icon: "zap"; } | { text: string; variant: "secondary"; icon: "chevron"; })[]; }' has no properties in common with type 'IntrinsicAttributes'.

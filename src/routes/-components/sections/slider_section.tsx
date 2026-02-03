@@ -2,74 +2,29 @@ import { cn } from "@/lib/utils"
 import { ChevronsLeftRight } from "lucide-react"
 import { useState } from "react"
 
-const cards = [
-    {
-        id: 1,
-        title: "Enhancing accuracy in radiology and diagnostics.",
-        description:
-            "AI Solutions for Faster & More Accurate Diagnoses. We develop intelligent AI models that assist radiologists and clinicians in detecting abnormalities from X-ray, CT, MRI, and ultrasound images with high precision.",
-        subSections: [
-            {
-                title: "Key Capabilities",
-                content: ["High-precision anomaly detection", "Automated triage integration"],
-            },
-            {
-                title: "Use Cases",
-                content: ["Mass screening programs", "Pediatric diagnostics support"],
-            },
-        ],
-        bg: "from-[#1E293B] to-[#97add7]",
-        image: {
-            active: "https://qure-website-images.s3.ap-south-1.amazonaws.com/Global_Health_769fbf2085.webp?w=3840&q=75",
-            inactive: "https://qure-website-images.s3.ap-south-1.amazonaws.com/Global_Health_2_b95532db8d.webp",
-        },
-    },
-    {
-        id: 2,
-        title: "Digitizing healthcare operations end-to-end.",
-        description:
-            "Smart Software for Modern Healthcare Workflows.We design secure, scalable hospital and clinical software to streamline patient management, clinical documentation, billing, and operations.",
-        subSections: [
-            {
-                title: "Key Capabilities",
-                content: ["Early nodule detection", "Longitudinal tracking"],
-            },
-            {
-                title: "Use Cases",
-                content: ["Oncology workflow optimization", "Preventive health checks"],
-            },
-        ],
-        bg: "from-[#1E293B] to-[#813766]",
-        image: {
-            active: "https://qure-website-images.s3.ap-south-1.amazonaws.com/Lung_Cancer_a4c6fd4662.webp?w=1920&q=75",
-            inactive: "https://qure-website-images.s3.ap-south-1.amazonaws.com/Lung_Cancer_56ad8974eb.webp",
-        },
-    },
-    {
-        id: 3,
-        title: "Digital Health & Connected Care",
-        description:
-            "Technology for Remote, Smart & Continuous Care.We build digital health platforms that connect doctors, patients, and devices for continuous monitoring, telemedicine, and preventive care.",
-        subSections: [
-            {
-                title: "Key Capabilities",
-                content: ["Real-time analysis", "Stroke coordination suite"],
-            },
-            {
-                title: "Use Cases",
-                content: ["Emergency response", "Hub & Spoke networks"],
-            },
-        ],
-        bg: "from-[#1E293B] to-[#bcd9bd]",
-        image: {
-            active: "https://qure-website-images.s3.ap-south-1.amazonaws.com/Stroke_253744226e.webp?w=3840&q=75",
-            inactive: "https://qure-website-images.s3.ap-south-1.amazonaws.com/Stroke_d115ba6272.webp?w=640&q=75",
-        },
-    },
-]
+interface Slide {
+    id: number
+    title: string
+    shortLine: string
+    hoverTitle: string
+    hoverContent: string
+    keyCapabilities: string[]
+    useCases: string[]
+    ctaText: string
+    visualType: "imaging" | "clinical" | "digital"
+    bg: string
+    image: {
+        active: string
+        inactive: string
+    }
+}
 
-export default function SliderSection() {
-    const [activeId, setActiveId] = useState<number | null>(1)
+interface SliderSectionProps {
+    slides: Slide[]
+}
+
+export default function SliderSection({ slides }: SliderSectionProps) {
+    const [activeId, setActiveId] = useState<number | null>(slides[0]?.id || 1)
 
     return (
         <div className="bg-background py-24 border-t border-white/5 relative overflow-hidden">
@@ -78,11 +33,11 @@ export default function SliderSection() {
 
             <div className="relative z-10">
                 <h2 className="text-4xl md:text-5xl font-light text-white text-center tracking-tight">
-                    Transforming Healthcare <span className="text-teal-400">Pathways with AI</span>
+                    Transforming Healthcare <span className="text-teal-400">Pathways with Technology</span>
                 </h2>
             </div>
             <div className="relative z-10 mt-16 p-3 flex flex-col md:flex-row max-w-7xl mx-auto w-full gap-4">
-                {cards.map((card) => {
+                {slides.map((card) => {
                     const isActive = activeId === card.id
                     return (
                         <div
@@ -106,11 +61,11 @@ export default function SliderSection() {
                                 <h3 className="text-2xl font-semibold leading-tight">{card.title}</h3>
                                 <div
                                     className={cn(
-                                        "mt-4 max-w-md text-sm transition-all duration-300",
+                                        "mt-4 max-w-md text-sm text-gray-200/80 leading-relaxed transition-all duration-300",
                                         isActive ? "opacity-100 translate-y-0" : "md:opacity-0 md:translate-y-4",
                                     )}
                                 >
-                                    {card.description}
+                                    {card.hoverContent}
                                 </div>
                                 <div
                                     className={cn(
@@ -118,24 +73,35 @@ export default function SliderSection() {
                                         isActive ? "opacity-100 translate-y-0" : "md:opacity-0 md:translate-y-4",
                                     )}
                                 >
-                                    {card.subSections.map((subSection, index) => (
-                                        <div key={index} className="mb-2">
-                                            <h4 className="text-sm font-semibold">{subSection.title}</h4>
-                                            <ul className="text-sm text-muted/60 list-disc list-inside">
-                                                {subSection.content.map((item, i) => (
-                                                    <li key={i}>{item}</li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                    ))}
+                                    <div className="mb-4">
+                                        <h4 className="text-sm font-semibold text-teal-400 mb-2 uppercase tracking-wider">
+                                            Key Features
+                                        </h4>
+                                        <ul className="text-sm text-gray-200/90 space-y-1.5">
+                                            {card.keyCapabilities.slice(0, 3).map((item, i) => (
+                                                <li key={i} className="flex items-start gap-2">
+                                                    <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-teal-500" />
+                                                    {item}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                    <div className="mb-2">
+                                        <h4 className="text-sm font-semibold text-teal-400 mb-1 uppercase tracking-wider">
+                                            Use Cases
+                                        </h4>
+                                        <p className="text-sm text-gray-200/90 leading-relaxed">
+                                            {Array.isArray(card.useCases) ? card.useCases.join(", ") : card.useCases}
+                                        </p>
+                                    </div>
                                 </div>
                                 <button
                                     className={cn(
-                                        "mt-6 w-fit rounded-full border border-white/70 px-6 py-2 text-sm transition-all duration-300",
+                                        "mt-6 w-fit rounded-full border border-teal-400/50 bg-teal-400/5 px-6 py-2 text-sm font-medium text-teal-400 transition-all duration-300 hover:bg-teal-400 hover:text-white",
                                         isActive ? "opacity-100" : "md:opacity-0",
                                     )}
                                 >
-                                    See How
+                                    {card.ctaText || "See How"}
                                 </button>
                             </div>
                             {isActive ? (
