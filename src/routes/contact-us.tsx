@@ -2,12 +2,19 @@ import { createFileRoute } from "@tanstack/react-router"
 import { CheckSquare, Mail } from "lucide-react"
 import Footer from "./-components/footer/footer"
 import Navbar from "./-components/navbar/navbar"
+import countryRegionData from "country-region-data/data.json"
+import { PhoneInput } from "@/components/ui/phone-input"
+import { useState } from "react"
+import { Input } from "@/components/ui/input"
+import { NativeSelect, NativeSelectOption } from "@/components/ui/native-select"
 
 export const Route = createFileRoute("/contact-us")({
     component: RouteComponent,
 })
 
 function RouteComponent() {
+    const [value, setValue] = useState<string | undefined>()
+
     return (
         <>
             <Navbar />
@@ -41,9 +48,9 @@ function RouteComponent() {
                                             <label className="text-sm font-medium text-slate-600 block">
                                                 First Name*
                                             </label>
-                                            <input
+                                            <Input
                                                 type="text"
-                                                className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all"
+                                                className="h-11 border-input/20"
                                                 placeholder="Enter your first name"
                                             />
                                         </div>
@@ -51,9 +58,9 @@ function RouteComponent() {
                                             <label className="text-sm font-medium text-slate-600 block">
                                                 Last Name*
                                             </label>
-                                            <input
+                                            <Input
                                                 type="text"
-                                                className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all"
+                                                className="h-11 border-input/20"
                                                 placeholder="Enter your last name"
                                             />
                                         </div>
@@ -64,9 +71,9 @@ function RouteComponent() {
                                             <label className="text-sm font-medium text-slate-600 block">
                                                 Job Title*
                                             </label>
-                                            <input
+                                            <Input
                                                 type="text"
-                                                className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all"
+                                                className="h-11 border-input/20"
                                                 placeholder="Enter your job title"
                                             />
                                         </div>
@@ -74,9 +81,9 @@ function RouteComponent() {
                                             <label className="text-sm font-medium text-slate-600 block">
                                                 Company Name*
                                             </label>
-                                            <input
+                                            <Input
                                                 type="text"
-                                                className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all"
+                                                className="h-11 border-input/20"
                                                 placeholder="Enter company name"
                                             />
                                         </div>
@@ -87,9 +94,9 @@ function RouteComponent() {
                                             <label className="text-sm font-medium text-slate-600 block">
                                                 Work Email Address*
                                             </label>
-                                            <input
+                                            <Input
                                                 type="email"
-                                                className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all"
+                                                className="h-11 border-input/20"
                                                 placeholder="Enter work email"
                                             />
                                         </div>
@@ -98,15 +105,12 @@ function RouteComponent() {
                                                 Mobile Number*
                                             </label>
                                             <div className="flex gap-2">
-                                                <select className="px-2 py-3 rounded-lg border border-slate-200 bg-white">
-                                                    <option>India (+91)</option>
-                                                    <option>USA (+1)</option>
-                                                    <option>UK (+44)</option>
-                                                </select>
-                                                <input
-                                                    type="tel"
-                                                    className="flex-1 px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all"
-                                                    placeholder="Enter mobile number"
+                                                <PhoneInput
+                                                    defaultCountry="IN"
+                                                    className="h-11 border-input/20"
+                                                    placeholder="Enter phone number"
+                                                    value={value}
+                                                    onChange={setValue}
                                                 />
                                             </div>
                                         </div>
@@ -116,13 +120,15 @@ function RouteComponent() {
                                         <label className="text-sm font-medium text-slate-600 block">
                                             Country / Region*
                                         </label>
-                                        <select className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-orange-500 outline-none bg-white">
-                                            <option value="">Please Select</option>
-                                            <option value="india">India</option>
-                                            <option value="usa">USA</option>
-                                            <option value="uk">UK</option>
-                                        </select>
                                     </div>
+                                    <NativeSelect className="h-11 border-input/20">
+                                        <NativeSelectOption value="">Please Select</NativeSelectOption>
+                                        {countryRegionData.map(({ countryName, countryShortCode }) => (
+                                            <NativeSelectOption key={countryShortCode} value={countryShortCode}>
+                                                {countryName}
+                                            </NativeSelectOption>
+                                        ))}
+                                    </NativeSelect>
 
                                     <div className="space-y-4">
                                         <label className="text-sm font-medium text-slate-600 block">
@@ -135,7 +141,7 @@ function RouteComponent() {
                                                 "Neither of these",
                                             ].map((option) => (
                                                 <label key={option} className="flex items-center gap-3 cursor-pointer">
-                                                    <input
+                                                    <Input
                                                         type="radio"
                                                         name="lookingFor"
                                                         className="w-4 h-4 text-orange-500 border-slate-300 focus:ring-orange-500"
@@ -150,17 +156,17 @@ function RouteComponent() {
                                         <label className="text-sm font-medium text-slate-600 block">
                                             How did you hear about us?*
                                         </label>
-                                        <select className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-orange-500 outline-none bg-white">
-                                            <option value="">Please Select</option>
-                                            <option value="social">Social Media</option>
-                                            <option value="ad">Advertisement</option>
-                                            <option value="referral">Referral</option>
-                                        </select>
+                                        <NativeSelect className="h-11 border-input/20">
+                                            <NativeSelectOption value="">Please Select</NativeSelectOption>
+                                            <NativeSelectOption value="social">Social Media</NativeSelectOption>
+                                            <NativeSelectOption value="ad">Advertisement</NativeSelectOption>
+                                            <NativeSelectOption value="referral">Referral</NativeSelectOption>
+                                        </NativeSelect>
                                     </div>
 
                                     <div className="space-y-4 py-4">
                                         <div className="flex items-start gap-3">
-                                            <input
+                                            <Input
                                                 type="checkbox"
                                                 className="mt-1 w-4 h-4 text-orange-500 rounded border-slate-300 focus:ring-orange-500"
                                             />
@@ -178,7 +184,7 @@ function RouteComponent() {
                                             </p>
                                         </div>
                                         <div className="flex items-start gap-3">
-                                            <input
+                                            <Input
                                                 type="checkbox"
                                                 className="mt-1 w-4 h-4 text-orange-500 rounded border-slate-300 focus:ring-orange-500"
                                             />

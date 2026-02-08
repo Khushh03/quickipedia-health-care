@@ -50,11 +50,11 @@ export default function Navbar() {
                             Reach out to us
                         </button>
 
-                        <div className="flex items-center gap-2 text-slate-200 cursor-pointer group">
+                        {/* <div className="flex items-center gap-2 text-slate-200 cursor-pointer group">
                             <Globe size={18} className="text-slate-200" />
                             <span className="text-[13px] font-medium">Global</span>
                             <ChevronDown size={14} className="group-hover:translate-y-0.5 transition-transform" />
-                        </div>
+                        </div> */}
                     </div>
 
                     {/* Mobile Menu Button */}
