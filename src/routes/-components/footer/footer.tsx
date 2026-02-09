@@ -16,7 +16,7 @@ const footerSections = [
         title: "Focus Areas",
         links: [{ name: "Global Health" }, { name: "Life Sciences" }, { name: "Channel Partners" }],
     },
-    {
+    /* {
         title: "Resources",
         links: [
             { name: "Insights", href: "/blog/silicosis" },
@@ -25,14 +25,14 @@ const footerSections = [
             { name: "Evidence" },
             { name: "Blogs", href: "/blog/silicosis" },
         ],
-    },
+    }, */
     {
         title: "About",
         links: [
             { name: "About Us", href: "/about-us" },
             { name: "Our Team" },
-            { name: "Our Investors" },
-            { name: "Client Success" },
+            { name: "Testimonials" },
+            { name: "Our Services", href: "/solutions" },
             { name: "Contact Us", href: "/contact-us" },
             { name: "Careers" },
         ],
@@ -56,7 +56,7 @@ export default function Footer() {
             {/* Main Footer Content */}
             <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
                 {/* Footer Sections Grid */}
-                <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-5">
+                <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-4">
                     {footerSections.map((section) => (
                         <div key={section.title} className="space-y-4">
                             <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-300">
