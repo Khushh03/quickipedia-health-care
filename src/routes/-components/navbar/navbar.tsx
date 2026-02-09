@@ -8,9 +8,9 @@ export default function Navbar() {
     const [isModalOpen, setIsModalOpen] = React.useState(false)
 
     const navLinks = [
-        { name: "Solutions", href: "/solutions", hasChevron: true },
+        { name: "Home", href: "/", hasChevron: true },
         { name: "About Us", href: "/about-us" },
-        { name: "Insights", href: "/blog/silicosis" },
+        { name: "Our Services", href: "/solutions" },
         { name: "Contact Us", href: "/contact-us" },
     ]
 
