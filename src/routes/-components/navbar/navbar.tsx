@@ -18,12 +18,9 @@ export default function Navbar() {
         <nav className="sticky top-0 z-50 bg-[#050d14] border-b border-white/5">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-14 md:h-16">
-                    {/* Logo */}
                     <div className="flex-shrink-0">
                         <Link to="/" className="flex items-center">
-                            <span className="text-xl md:text-2xl font-light text-[#ff7c5c] tracking-tight">
-                                Quickipedia
-                            </span>
+                            <img src="/quickipedia-logo.png" alt="Quickipedia" className="h-8 md:h-10 w-auto" />
                         </Link>
                     </div>
 

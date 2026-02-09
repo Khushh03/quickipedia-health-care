@@ -84,8 +84,8 @@ export default function Footer() {
                 {/* Bottom Section */}
                 <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
                     {/* Logo and Description */}
-                    <div className="space-y-3">
-                        <div className="text-2xl font-bold text-orange-500">Quickipedia Healthcare</div>
+                    <div className="space-y-4">
+                        <img src="/quickipedia-logo.png" alt="Quickipedia Healthcare" className="h-10 md:h-12 w-auto" />
                         <div>
                             <p className="text-sm font-semibold text-slate-300">Quickipedia IT Innovation Pvt Ltd</p>
                             <p className="max-w-xs text-sm text-slate-400">
