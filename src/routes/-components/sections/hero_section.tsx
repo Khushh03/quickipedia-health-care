@@ -71,8 +71,8 @@ export default function HeroSection({ title, subtitle, description, ctas }: Hero
                         </div>
 
                         {/* Right Side - Visual Composition (The "Photo" replica) */}
-                        <div className="relative block h-[450px] sm:h-[600px] lg:h-[700px] mt-12 lg:mt-0">
-                            <div className="relative h-full w-full scale-[0.55] sm:scale-75 lg:scale-100 origin-center lg:origin-right transition-transform duration-700">
+                        <div className="relative block h-[450px] sm:h-[600px] lg:h-[700px] mt-12 lg:-mt-20">
+                            <div className="relative h-full w-full scale-[0.55] sm:scale-75 lg:scale-100 origin-center transition-transform duration-700 lg:-translate-y-12">
                                 {/* 1. Phone Mockup (Left side) */}
                                 <div className="absolute top-1/2 -translate-y-1/2 left-0 w-[280px] h-[560px] bg-[#0a111a] rounded-[3rem] border-4 border-white/10 shadow-2xl overflow-hidden z-20">
                                     {/* Screen Content */}
