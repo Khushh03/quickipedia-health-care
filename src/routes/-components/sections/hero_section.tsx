@@ -9,9 +9,10 @@ interface HeroSectionProps {
         variant: "primary" | "secondary"
         icon: "zap" | "chevron"
     }[]
+    onContactClick?: () => void
 }
 
-export default function HeroSection({ title, subtitle, description, ctas }: HeroSectionProps) {
+export default function HeroSection({ title, subtitle, description, ctas, onContactClick }: HeroSectionProps) {
     return (
         <div className="w-full">
             {/* Hero Section */}
@@ -36,6 +37,11 @@ export default function HeroSection({ title, subtitle, description, ctas }: Hero
                                 {ctas.map((cta, index) => (
                                     <button
                                         key={index}
+                                        onClick={() => {
+                                            if (index === 1 && onContactClick) {
+                                                onContactClick()
+                                            }
+                                        }}
                                         className={cn(
                                             "w-full sm:w-fit sm:min-w-[280px] px-8 py-4 font-medium rounded-xl transition-all duration-300",
                                             cta.variant === "primary"

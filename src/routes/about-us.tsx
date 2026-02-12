@@ -8,7 +8,6 @@ import {
     Users,
     Rocket,
     Mail,
-    X,
     Layout,
     Target,
     Maximize,
@@ -17,82 +16,21 @@ import {
 } from "lucide-react"
 import Navbar from "./-components/navbar/navbar"
 import Footer from "./-components/footer/footer"
-import { Link, createFileRoute } from "@tanstack/react-router"
+import { createFileRoute } from "@tanstack/react-router"
 
 export const Route = createFileRoute("/about-us")({
     component: AboutUsComponent,
 })
+
+import ContactModal from "./-components/navbar/contact-modal"
 
 function AboutUsComponent() {
     const [isModalOpen, setIsModalOpen] = useState(false)
 
     return (
         <>
-            <Navbar />
-            {isModalOpen && (
-                <div className="fixed inset-0 z-100 flex items-center justify-center px-4">
-                    <div
-                        className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm"
-                        onClick={() => setIsModalOpen(false)}
-                    ></div>
-                    <div className="relative bg-white rounded-2xl shadow-2xl p-8 md:p-12 text-slate-900 border border-slate-200 max-w-2xl w-full max-h-[90vh] overflow-y-auto animate-in fade-in zoom-in duration-300">
-                        <button
-                            onClick={() => setIsModalOpen(false)}
-                            className="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-600 transition-colors"
-                        >
-                            <X size={24} />
-                        </button>
-
-                        <div className="text-center mb-8">
-                            <h2 className="text-3xl font-weight-400 mb-2">Schedule a Consultation</h2>
-                            <p className="text-slate-500 font-weight-400">
-                                Fill in the details below and we'll get back to you.
-                            </p>
-                        </div>
-
-                        <form className="space-y-4">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <input
-                                    type="text"
-                                    placeholder="First Name*"
-                                    className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-orange-500 outline-none font-weight-400"
-                                />
-                                <input
-                                    type="text"
-                                    placeholder="Last Name*"
-                                    className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-orange-500 outline-none font-weight-400"
-                                />
-                            </div>
-                            <input
-                                type="email"
-                                placeholder="Work Email*"
-                                className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-orange-500 outline-none font-weight-400"
-                            />
-                            <input
-                                type="text"
-                                placeholder="Company Name*"
-                                className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-orange-500 outline-none font-weight-400"
-                            />
-                            <textarea
-                                placeholder="How can we help you?"
-                                rows={3}
-                                className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-orange-500 outline-none font-weight-400 resize-none"
-                            ></textarea>
-
-                            <button className="w-full bg-orange-500 hover:bg-orange-600 text-white font-weight-400 py-4 rounded-lg transition-all shadow-lg shadow-orange-500/20">
-                                Submit Request
-                            </button>
-
-                            <p className="text-center text-sm text-slate-400 font-weight-400 pt-4">
-                                Need more space?{" "}
-                                <Link to="/contact-us" className="text-orange-500 hover:underline">
-                                    Go to full contact form
-                                </Link>
-                            </p>
-                        </form>
-                    </div>
-                </div>
-            )}
+            <Navbar isModalOpen={isModalOpen} onModalToggle={setIsModalOpen} />
+            <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
             <div className="flex flex-col min-h-screen bg-slate-950 text-white font-sans relative">
                 {/* Global Background Image */}
                 <div className="fixed inset-0 z-0 pointer-events-none opacity-10">

@@ -3,9 +3,23 @@ import { Menu, Globe, ChevronDown } from "lucide-react"
 import { Link } from "@tanstack/react-router"
 import ContactModal from "./contact-modal"
 
-export default function Navbar() {
+interface NavbarProps {
+    isModalOpen?: boolean
+    onModalToggle?: (isOpen: boolean) => void
+}
+
+export default function Navbar({ isModalOpen: propIsModalOpen, onModalToggle }: NavbarProps) {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false)
-    const [isModalOpen, setIsModalOpen] = React.useState(false)
+    const [internalIsModalOpen, setInternalIsModalOpen] = React.useState(false)
+
+    const isModalOpen = propIsModalOpen !== undefined ? propIsModalOpen : internalIsModalOpen
+    const setIsModalOpen = (open: boolean) => {
+        if (onModalToggle) {
+            onModalToggle(open)
+        } else {
+            setInternalIsModalOpen(open)
+        }
+    }
 
     const navLinks = [
         { name: "Home", href: "/" },

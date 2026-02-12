@@ -10,9 +10,10 @@ interface CtaSectionProps {
         icon?: "zap" | "chevron"
         href?: string
     }>
+    onContactClick?: () => void
 }
 
-export default function CtaSection({ title, description, buttons }: CtaSectionProps) {
+export default function CtaSection({ title, description, buttons, onContactClick }: CtaSectionProps) {
     const getIcon = (iconName?: string) => {
         switch (iconName) {
             case "zap":
@@ -46,11 +47,18 @@ export default function CtaSection({ title, description, buttons }: CtaSectionPr
                                 : "px-10 py-4 border border-white/10 bg-white/5 text-white font-semibold rounded-xl hover:bg-white/10 transition-all duration-300 flex items-center gap-2 backdrop-blur-sm"
 
                         if (button.href) {
+                            const isContactLink = button.href === "/contact-us"
                             return (
                                 <Link
                                     key={idx}
-                                    to={button.href as any}
-                                    className={`${className} decoration-transparent`}
+                                    to={isContactLink ? undefined : (button.href as any)}
+                                    onClick={(e) => {
+                                        if (isContactLink && onContactClick) {
+                                            e.preventDefault()
+                                            onContactClick()
+                                        }
+                                    }}
+                                    className={`${className} decoration-transparent cursor-pointer`}
                                 >
                                     {button.icon && idx === 0 && getIcon(button.icon)}
                                     {button.text}

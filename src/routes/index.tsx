@@ -1,3 +1,4 @@
+```typescript
 import { createFileRoute } from "@tanstack/react-router"
 import Navbar from "./-components/navbar/navbar"
 import Footer from "./-components/footer/footer"
@@ -413,13 +414,18 @@ const data = {
     },
 }
 
+import { useState } from "react"
+import ContactModal from "./-components/navbar/contact-modal"
+
 function RouteComponent() {
+    const [isModalOpen, setIsModalOpen] = useState(false)
+
     return (
         <>
-            <Navbar />
+            <Navbar isModalOpen={isModalOpen} onModalToggle={setIsModalOpen} />
             <div className="flex flex-col">
                 <main>
-                    <HeroSection {...data.hero} />
+                    <HeroSection {...data.hero} onContactClick={() => setIsModalOpen(true)} />
                     <PartnersCarouselSection />
                     <SliderSection {...data.slider} />
                     <DomainsSection {...data.domains} />
@@ -427,11 +433,12 @@ function RouteComponent() {
                     <DevelopmentApproachSection {...data.developmentApproach} />
                     {/* <ImpactSection {...data.impact} /> */}
                     <BlogSection />
-                    <CtaSection {...data.cta} />
+                    <CtaSection {...data.cta} onContactClick={() => setIsModalOpen(true)} />
                     <AboutUsSection {...data.aboutUs} />
                 </main>
                 <Footer />
             </div>
+            <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </>
     )
 }
