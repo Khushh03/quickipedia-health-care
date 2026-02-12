@@ -329,16 +329,34 @@ const data = {
         },
         philosophy: {
             title: "Our Philosophy",
-            description: "We believe that healthcare technology must be:",
-            beliefs: [
-                "System-first, not feature-first",
-                "Reliable, not experimental",
-                "Scalable, not short-term",
-                "Secure, not compromised",
-                "Built for operators, not just developers",
+            subtitle: "Engineering Software That Powers Intelligent Enterprises",
+            items: [
+                {
+                    title: "Architecture-First Development",
+                    description:
+                        "We design software with structured architecture at its core, ensuring clean code, modular systems, and long-term maintainability across every solution we build.",
+                },
+                {
+                    title: "Precision-Driven Engineering",
+                    description:
+                        "Our development process follows defined standards, optimized workflows, and performance-focused coding practices to deliver stable and efficient software systems.",
+                },
+                {
+                    title: "Scalable System Design",
+                    description:
+                        "Every application is built with scalability in mind — supporting increasing users, expanding data, and evolving business requirements without compromising performance.",
+                },
+                {
+                    title: "Secure & Structured Infrastructure",
+                    description:
+                        "We implement secure coding practices, controlled access frameworks, and data protection standards to ensure system integrity and operational continuity.",
+                },
+                {
+                    title: "Built for Business Performance",
+                    description:
+                        "Our software solutions are engineered to streamline workflows, automate processes, and enhance decision-making through structured dashboards and intelligent data systems.",
+                },
             ],
-            principlesIntro: "Every system we design follows three principles:",
-            principles: ["Simplicity in workflows", "Transparency in data", "Stability in operations"],
         },
         howWeWork: {
             title: "How We Work",

@@ -37,7 +37,7 @@ export default function HeroSection({ title, subtitle, description, ctas }: Hero
                                     <button
                                         key={index}
                                         className={cn(
-                                            "px-8 py-4 font-medium rounded-xl transition-all duration-300",
+                                            "w-full sm:w-fit sm:min-w-[280px] px-8 py-4 font-medium rounded-xl transition-all duration-300",
                                             cta.variant === "primary"
                                                 ? "bg-teal-500 hover:bg-teal-600 text-white shadow-lg shadow-teal-500/20"
                                                 : "bg-white/5 hover:bg-white/10 text-white border border-white/10 backdrop-blur-sm",
@@ -48,21 +48,21 @@ export default function HeroSection({ title, subtitle, description, ctas }: Hero
                                 ))}
                             </div>
                             {/* Statistics */}
-                            <div className="grid grid-cols-2 md:flex md:gap-12 pt-8 border-t border-white/10 mt-12 gap-y-8">
-                                <div className="space-y-1">
-                                    <div className="text-3xl md:text-4xl font-light text-white">40M+</div>
+                            <div className="flex flex-nowrap items-center justify-between p-10  border-t border-white/10 mt-12 overflow-x-hidden">
+                                <div className="space-y-1 shrink-0">
+                                    <div className="text-2xl sm:text-3xl md:text-4xl font-light text-white">40M+</div>
                                     <div className="text-[10px] md:text-xs uppercase tracking-widest text-teal-500/70 font-bold">
                                         Lives Impacted
                                     </div>
                                 </div>
-                                <div className="space-y-1">
-                                    <div className="text-3xl md:text-4xl font-light text-white">105+</div>
+                                <div className="space-y-1 shrink-0">
+                                    <div className="text-2xl sm:text-3xl md:text-4xl font-light text-white">105+</div>
                                     <div className="text-[10px] md:text-xs uppercase tracking-widest text-teal-500/70 font-bold">
                                         Countries
                                     </div>
                                 </div>
-                                <div className="space-y-1 col-span-2 md:col-span-1">
-                                    <div className="text-3xl md:text-4xl font-light text-white">1B+</div>
+                                <div className="space-y-1 shrink-0">
+                                    <div className="text-2xl sm:text-3xl md:text-4xl font-light text-white">1B+</div>
                                     <div className="text-[10px] md:text-xs uppercase tracking-widest text-teal-500/70 font-bold">
                                         Data Points
                                     </div>

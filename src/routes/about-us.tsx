@@ -1,5 +1,20 @@
 import { useState } from "react"
-import { CheckCircle, ShieldCheck, Zap, Activity, Globe, Users, Target, Rocket, Mail, X } from "lucide-react"
+import {
+    CheckCircle,
+    ShieldCheck,
+    Zap,
+    Activity,
+    Globe,
+    Users,
+    Rocket,
+    Mail,
+    X,
+    Layout,
+    Target,
+    Maximize,
+    BarChart,
+    Sparkles,
+} from "lucide-react"
 import Navbar from "./-components/navbar/navbar"
 import Footer from "./-components/footer/footer"
 import { Link, createFileRoute } from "@tanstack/react-router"
@@ -328,70 +343,78 @@ function AboutUsComponent() {
                         </div>
                     </section>
 
-                    {/* Philosophy & Principles */}
-                    <section className="py-24 px-4 bg-slate-950">
-                        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20">
-                            <div className="space-y-8">
-                                <h2 className="text-4xl font-weight-400">Our Philosophy</h2>
-                                <p className="text-slate-400 text-lg font-weight-400">
-                                    We believe that healthcare technology must be:
-                                </p>
-                                <div className="space-y-4">
-                                    {[
-                                        "System-first, not feature-first",
-                                        "Reliable, not experimental",
-                                        "Scalable, not short-term",
-                                        "Secure, not compromised",
-                                        "Built for operators, not just developers",
-                                    ].map((text) => (
-                                        <div key={text} className="flex items-center gap-4 group font-weight-400    ">
-                                            <div className="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center group-hover:bg-orange-500 transition-colors">
-                                                <Target className="w-5 h-5" />
-                                            </div>
-                                            <span className="text-lg font-medium text-slate-200 font-weight-400">
-                                                {text}
-                                            </span>
-                                        </div>
-                                    ))}
+                    {/* Our Philosophy */}
+                    <section className="py-32 px-4 bg-slate-950 relative overflow-hidden">
+                        {/* Background Glows */}
+                        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-orange-500/5 blur-[120px] rounded-full" />
+                        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-teal-500/5 blur-[120px] rounded-full" />
+
+                        <div className="max-w-6xl mx-auto space-y-20 relative z-10">
+                            <div className="text-center space-y-6">
+                                <h2 className="text-4xl md:text-5xl font-weight-400">Our Philosophy</h2>
+                                <div className="inline-flex items-center gap-3 px-6 py-2 bg-orange-500/5 border border-orange-500/10 rounded-full">
+                                    <Sparkles className="w-4 h-4 text-orange-500" />
+                                    <p className="text-orange-400 text-lg font-weight-400 italic">
+                                        "Engineering Software That Powers Intelligent Enterprises"
+                                    </p>
                                 </div>
                             </div>
-                            <div className="space-y-8">
-                                <h2 className="text-4xl font-weight-400">Core Principles</h2>
-                                <p className="text-slate-400 text-lg font-weight-400">
-                                    Every system we design follows three principles:
-                                </p>
-                                <div className="grid grid-cols-1 gap-6">
-                                    {[
-                                        {
-                                            n: "1",
-                                            t: "Simplicity in workflows",
-                                            d: "Streamlining medical procedures for clinical efficiency.",
-                                        },
-                                        {
-                                            n: "2",
-                                            t: "Transparency in data",
-                                            d: "Ensuring accuracy and accessibility for better decision making.",
-                                        },
-                                        {
-                                            n: "3",
-                                            t: "Stability in operations",
-                                            d: "Rock-solid infrastructure for 24/7 healthcare demands.",
-                                        },
-                                    ].map((p) => (
-                                        <div
-                                            key={p.n}
-                                            className="flex gap-6 p-6 bg-slate-900/40 rounded-2xl border border-slate-800/80"
-                                        >
-                                            <div className="text-4xl font-black text-orange-500/20">{p.n}</div>
-                                            <div className="space-y-1">
-                                                <h4 className="text-xl font-weight-400">{p.t}</h4>
-                                                <p className="text-slate-400 text-sm leading-relaxed font-weight-400">
-                                                    {p.d}
-                                                </p>
-                                            </div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                {[
+                                    {
+                                        title: "Architecture-First Development",
+                                        description:
+                                            "We design software with structured architecture at its core, ensuring clean code, modular systems, and long-term maintainability across every solution we build.",
+                                        icon: Layout,
+                                        color: "orange",
+                                    },
+                                    {
+                                        title: "Precision-Driven Engineering",
+                                        description:
+                                            "Our development process follows defined standards, optimized workflows, and performance-focused coding practices to deliver stable and efficient software systems.",
+                                        icon: Target,
+                                        color: "teal",
+                                    },
+                                    {
+                                        title: "Scalable System Design",
+                                        description:
+                                            "Every application is built with scalability in mind — supporting increasing users, expanding data, and evolving business requirements without compromising performance.",
+                                        icon: Maximize,
+                                        color: "blue",
+                                    },
+                                    {
+                                        title: "Secure & Structured Infrastructure",
+                                        description:
+                                            "We implement secure coding practices, controlled access frameworks, and data protection standards to ensure system integrity and operational continuity.",
+                                        icon: ShieldCheck,
+                                        color: "indigo",
+                                    },
+                                    {
+                                        title: "Built for Business Performance",
+                                        description:
+                                            "Our software solutions are engineered to streamline workflows, automate processes, and enhance decision-making through structured dashboards and intelligent data systems.",
+                                        icon: BarChart,
+                                        color: "purple",
+                                    },
+                                ].map((p, idx) => (
+                                    <div
+                                        key={idx}
+                                        className="relative group p-10 bg-slate-900/40 backdrop-blur-md border border-slate-800 rounded-[2.5rem] hover:border-orange-500/30 transition-all duration-500 hover:-translate-y-2"
+                                    >
+                                        <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
+                                            <p className="text-7xl font-black font-mono">0{idx + 1}</p>
                                         </div>
-                                    ))}
-                                </div>
+                                        <div className="w-16 h-16 rounded-2xl bg-slate-950 border border-slate-800 flex items-center justify-center mb-8 shadow-inner group-hover:bg-orange-500 group-hover:border-orange-400 transition-all duration-500">
+                                            <p.icon className="w-8 h-8 text-orange-500 group-hover:text-white transition-colors" />
+                                        </div>
+                                        <h3 className="text-2xl font-weight-400 text-white mb-4 leading-tight">
+                                            {p.title}
+                                        </h3>
+                                        <p className="text-slate-400 text-sm leading-relaxed font-weight-400">
+                                            {p.description}
+                                        </p>
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     </section>

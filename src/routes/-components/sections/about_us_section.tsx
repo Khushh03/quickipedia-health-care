@@ -1,4 +1,4 @@
-import { Zap } from "lucide-react"
+import { BarChart, Layout, Maximize, ShieldCheck, Target, Zap } from "lucide-react"
 
 interface AboutUsSectionProps {
     intro: {
@@ -33,10 +33,11 @@ interface AboutUsSectionProps {
     }
     philosophy: {
         title: string
-        description: string
-        beliefs: string[]
-        principlesIntro: string
-        principles: string[]
+        subtitle: string
+        items: Array<{
+            title: string
+            description: string
+        }>
     }
     finalCta: {
         title: string
@@ -159,35 +160,55 @@ export default function AboutUsSection({
                 </div>
 
                 {/* Our Philosophy */}
-                <div className="mt-32 relative py-20">
-                    <div className="absolute inset-0 bg-teal-500/2 rounded-3xl -rotate-1" />
-                    <div className="relative z-10 text-center mb-16">
-                        <h2 className="text-4xl md:text-5xl font-light text-white tracking-tight mb-4">
+                <div className="mt-32 relative py-32 px-10 rounded-[3rem] border border-teal-500/10 bg-slate-900/40 backdrop-blur-xl overflow-hidden shadow-2xl">
+                    {/* Floating Decorative Elements */}
+                    <div className="absolute -top-24 -left-24 w-96 h-96 bg-teal-500/10 blur-[120px] rounded-full animate-pulse" />
+                    <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-[#ff7c5c]/10 blur-[120px] rounded-full animate-pulse delay-700" />
+
+                    <div className="relative z-10 text-center mb-20 space-y-6">
+                        <h2 className="text-4xl md:text-5xl font-light text-white tracking-tight">
                             {philosophy.title}
                         </h2>
-                    </div>
-                    <div className="grid md:grid-cols-5 gap-4">
-                        {philosophy.beliefs.map((item, idx) => (
-                            <div
-                                key={idx}
-                                className="p-6 rounded-2xl border border-teal-500/20 bg-teal-500/5 text-center group hover:bg-teal-500/10 transition-all duration-300"
-                            >
-                                <span className="text-sm font-light text-teal-300 tracking-wide">{item}</span>
-                            </div>
-                        ))}
-                    </div>
-                    <div className="mt-16 text-center max-w-3xl mx-auto">
-                        <p className="text-xl text-gray-400 font-light mb-8 italic">{philosophy.principlesIntro}</p>
-                        <div className="flex flex-wrap justify-center gap-6">
-                            {philosophy.principles.map((item, idx) => (
-                                <span
-                                    key={idx}
-                                    className="px-6 py-3 bg-white/5 border border-white/10 rounded-full text-white font-light tracking-wide hover:border-[#ff7c5c]/50 transition-colors"
-                                >
-                                    {item}
-                                </span>
-                            ))}
+                        <div className="inline-flex items-center gap-3 px-6 py-2 bg-teal-500/5 border border-teal-500/10 rounded-full">
+                            <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
+                            <p className="text-teal-400 font-light italic text-xl tracking-tight">
+                                "{philosophy.subtitle}"
+                            </p>
                         </div>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {philosophy.items.map((item, idx) => {
+                            // Map icons based on titles or index
+                            const icons = [
+                                <Layout className="w-8 h-8" />,
+                                <Target className="w-8 h-8" />,
+                                <Maximize className="w-8 h-8" />,
+                                <ShieldCheck className="w-8 h-8" />,
+                                <BarChart className="w-8 h-8" />,
+                            ]
+                            return (
+                                <div
+                                    key={idx}
+                                    className="relative group p-10 rounded-[2.5rem] border border-white/5 bg-white/2 hover:bg-white/5 hover:border-teal-500/30 transition-all duration-500 hover:-translate-y-2"
+                                >
+                                    <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
+                                        <p className="text-7xl font-black font-mono">0{idx + 1}</p>
+                                    </div>
+                                    <div className="w-16 h-16 rounded-2xl bg-background border border-white/5 flex items-center justify-center mb-8 shadow-inner group-hover:bg-teal-500 group-hover:border-teal-400 transition-all duration-500 overflow-hidden">
+                                        <div className="text-teal-400 group-hover:text-white transition-colors">
+                                            {icons[idx]}
+                                        </div>
+                                    </div>
+                                    <h3 className="text-2xl font-light text-white mb-4 leading-tight group-hover:text-teal-400 transition-colors">
+                                        {item.title}
+                                    </h3>
+                                    <p className="text-gray-400 text-[15px] font-light leading-relaxed">
+                                        {item.description}
+                                    </p>
+                                </div>
+                            )
+                        })}
                     </div>
                 </div>
 
