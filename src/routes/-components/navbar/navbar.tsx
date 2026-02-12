@@ -8,7 +8,7 @@ export default function Navbar() {
     const [isModalOpen, setIsModalOpen] = React.useState(false)
 
     const navLinks = [
-        { name: "Home", href: "/", hasChevron: true },
+        { name: "Home", href: "/" },
         { name: "About Us", href: "/about-us" },
         { name: "Our Services", href: "/solutions" },
         { name: "Contact Us", href: "/contact-us" },
@@ -33,7 +33,6 @@ export default function Navbar() {
                                 className="px-3 py-2 text-[13px] font-medium text-slate-200 hover:text-[#ff7c5c] transition-colors flex items-center gap-1 decoration-transparent"
                             >
                                 {link.name}
-                                {link.hasChevron && <ChevronDown size={14} className="mt-0.5" />}
                             </Link>
                         ))}
                     </div>

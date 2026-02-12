@@ -37,10 +37,6 @@ const footerSections = [
             { name: "Careers" },
         ],
     },
-    {
-        title: "Partnerships",
-        links: [{ name: "India Health Fund" }, { name: "CaritasKlinikum Saarbrücken" }, { name: "AWS" }],
-    },
 ]
 
 const socialLinks = [
@@ -56,7 +52,7 @@ export default function Footer() {
             {/* Main Footer Content */}
             <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
                 {/* Footer Sections Grid */}
-                <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-4">
+                <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-3">
                     {footerSections.map((section) => (
                         <div key={section.title} className="space-y-4">
                             <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-300">
