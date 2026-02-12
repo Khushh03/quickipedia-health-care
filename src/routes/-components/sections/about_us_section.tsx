@@ -205,14 +205,6 @@ export default function AboutUsSection({
                             <Zap size={18} fill="currentColor" />
                             {finalCta.buttonText}
                         </button>
-                        <div className="mt-16 pt-16 border-t border-white/10">
-                            <p className="text-4xl font-light text-white tracking-tighter mb-2 italic">
-                                {finalCta.companyName}
-                            </p>
-                            <p className="text-teal-400 font-medium tracking-[0.3em] uppercase text-[10px]">
-                                {finalCta.tagline}
-                            </p>
-                        </div>
                     </div>
                 </div>
             </div>

@@ -221,22 +221,17 @@ function RouteComponent() {
                                     <div className="space-y-10">
                                         {[
                                             {
-                                                city: "India",
-                                                addr: "Registered Address: No.12, 1st Floor, S.K.Tower, 2nd Cross Road, Bangalore, Karnataka-560042",
+                                                city: "Delhi",
+                                                addr: "1st Floor, 101, Chaudhary Market, Mayur Vihar-1, East Delhi, Delhi - 110091",
                                             },
                                             {
-                                                city: "Mumbai",
-                                                addr: "Mumbai Office: No.12, 1st Floor, S.K.Tower, 2nd Cross Road, Bangalore, Karnataka-560042",
+                                                city: "Bihar",
+                                                addr: "Little Flower Khadi Village, Raxaul, East Champarat, Bihar - 845305",
                                             },
                                             {
-                                                city: "Bangalore",
-                                                addr: "Bangalore Office: No.12, 1st Floor, S.K.Tower, 2nd Cross Road, Bangalore, Karnataka-560042",
+                                                city: "Gujarat",
+                                                addr: "Gangadhara, Surat, Gujarat - 394310",
                                             },
-                                            {
-                                                city: "USA",
-                                                addr: "Registered Address: One World Trade Center, Suite 8500, New York, NY 10007",
-                                            },
-                                            { city: "UK", addr: "Registered Address: 124 City Road, London, EC1V 2NX" },
                                         ].map((loc) => (
                                             <div key={loc.city} className="space-y-2">
                                                 <h3 className="text-xl font-bold text-orange-400">{loc.city}</h3>
