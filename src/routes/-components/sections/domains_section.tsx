@@ -19,7 +19,7 @@ export default function DomainsSection({ title, subtitle, domains }: DomainsSect
     const [selectedDomain, setSelectedDomain] = useState<Domain | null>(null)
 
     return (
-        <section className="relative py-24 bg-[#050d14] overflow-hidden">
+        <section className="relative py-6 lg:py-12 bg-[#050d14] overflow-hidden">
             {/* Animated Background Highlights */}
             <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-teal-500/5 rounded-full blur-[120px] animate-pulse" />
             <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px] animate-pulse delay-700" />

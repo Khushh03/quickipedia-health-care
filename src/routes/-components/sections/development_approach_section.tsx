@@ -12,7 +12,7 @@ interface DevelopmentApproachSectionProps {
 
 export default function DevelopmentApproachSection({ title, subtitle, steps }: DevelopmentApproachSectionProps) {
     return (
-        <section className="relative py-24 bg-background overflow-hidden border-t border-white/5">
+        <section className="relative py-6 lg:py-12 bg-background overflow-hidden border-t border-white/5">
             {/* Animated Background Highlights */}
             <div className="absolute top-0 left-1/3 w-[500px] h-[500px] bg-teal-500/5 rounded-full blur-[120px] animate-pulse" />
 

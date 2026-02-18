@@ -27,7 +27,7 @@ export default function SliderSection({ slides }: SliderSectionProps) {
     const [activeId, setActiveId] = useState<number | null>(slides[0]?.id || 1)
 
     return (
-        <div className="bg-background py-24 border-t border-white/5 relative overflow-hidden">
+        <div className="bg-background py-6 lg:py-12 border-t border-white/5 relative overflow-hidden">
             {/* Animated Background Highlights */}
             <div className="absolute top-0 right-1/2 w-[600px] h-[600px] bg-teal-500/5 rounded-full blur-[120px] animate-pulse" />
 

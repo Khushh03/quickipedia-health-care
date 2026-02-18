@@ -29,7 +29,7 @@ export default function WhyUsSection({ badge, title, description, differentiator
     }
 
     return (
-        <section className="relative py-24 bg-background overflow-hidden border-t border-white/5">
+        <section className="relative py-6 lg:py-12 bg-background overflow-hidden border-t border-white/5">
             {/* Animated Background Highlights */}
             <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-teal-500/5 rounded-full blur-[120px] animate-pulse" />
             <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-[#ff7c5c]/5 rounded-full blur-[120px] animate-pulse delay-1000" />

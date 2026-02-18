@@ -3,7 +3,7 @@ import { Link } from "@tanstack/react-router"
 
 export default function BlogSection() {
     return (
-        <section className="py-20 bg-background overflow-hidden">
+        <section className="py-6 lg:py-12 bg-background overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                     {/* Left Column: Social Feed */}
