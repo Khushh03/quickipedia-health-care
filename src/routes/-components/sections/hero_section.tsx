@@ -22,18 +22,20 @@ export default function HeroSection({ title, subtitle, description, ctas, onCont
                 <div className="absolute inset-0 z-0 bg-linear-to-tr from-[#020d1a] via-transparent to-teal-500/5"></div>
 
                 {/* Content */}
-                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-20">
-                    <div className="grid lg:grid-cols-2 gap-16 items-center">
+                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-0 py-10 md:py-20">
+                    <div className="grid lg:grid-cols-[3fr_2fr] gap-16 items-center">
                         {/* Left Content */}
-                        <div className="space-y-8">
-                            <h1 className="text-4xl md:text-7xl font-light text-white leading-tight">
-                                {title.split(" ").slice(0, 1)}
-                                <span className="lg:block"> {title.split(" ").slice(1, 4).join(" ")} </span>
-                                <span className="text-teal-400 font-normal">{title.split(" ").slice(4).join(" ")}</span>
+                        <div>
+                            <h1 className="mb-4 font-serif text-5xl md:text-6xl font-light text-white leading-tight">
+                                {/* {title.split(" ").slice(0, 1)} */}
+                                <span className="lg:block"> {title} </span>
+                                {/* <span className="text-teal-400 font-normal">{title.split(" ").slice(4).join(" ")}</span> */}
                             </h1>
-                            <p className="text-teal-400/80 font-medium tracking-wide uppercase text-sm">{subtitle}</p>
-                            <p className="text-lg text-gray-400 max-w-xl">{description}</p>
-                            <div className="flex flex-wrap gap-4">
+                            <p className="mb-4 text-teal-400/80 font-medium tracking-wide uppercase text-sm text-pretty">
+                                {subtitle}
+                            </p>
+                            <p className="mb-4 text-lg text-gray-400 text-pretty">{description}</p>
+                            <div className="flex flex-wrap lg:grid lg:grid-cols-2 gap-4 lg:max-w-2xl">
                                 {ctas.map((cta, index) => (
                                     <button
                                         key={index}
@@ -43,7 +45,7 @@ export default function HeroSection({ title, subtitle, description, ctas, onCont
                                             }
                                         }}
                                         className={cn(
-                                            "w-full sm:w-fit sm:min-w-[280px] px-8 py-4 font-medium rounded-xl transition-all duration-300",
+                                            "w-full lg:w-full sm:w-fit sm:min-w-[280px] px-8 py-4 font-medium rounded-xl transition-all duration-300",
                                             cta.variant === "primary"
                                                 ? "bg-teal-500 hover:bg-teal-600 text-white shadow-lg shadow-teal-500/20"
                                                 : "bg-white/5 hover:bg-white/10 text-white border border-white/10 backdrop-blur-sm",
