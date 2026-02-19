@@ -25,7 +25,7 @@ export default function HeroSection({ title, subtitle, description, ctas, onCont
                 <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-0 py-10 md:py-20">
                     <div className="grid lg:grid-cols-[3fr_2fr] gap-16 items-center">
                         {/* Left Content */}
-                        <div>
+                        <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
                             <h1 className="mb-4 font-serif text-5xl md:text-6xl font-light text-white leading-tight">
                                 {/* {title.split(" ").slice(0, 1)} */}
                                 <span className="lg:block"> {title} </span>
@@ -34,7 +34,7 @@ export default function HeroSection({ title, subtitle, description, ctas, onCont
                             <p className="mb-4 text-teal-400/80 font-medium tracking-wide uppercase text-sm text-pretty">
                                 {subtitle}
                             </p>
-                            <p className="mb-4 text-lg text-gray-400 text-pretty">{description}</p>
+                            <p className="hidden md:block mb-4 text-lg text-gray-400 text-pretty">{description}</p>
                             <div className="flex flex-wrap lg:grid lg:grid-cols-2 gap-4 lg:max-w-2xl">
                                 {ctas.map((cta, index) => (
                                     <button

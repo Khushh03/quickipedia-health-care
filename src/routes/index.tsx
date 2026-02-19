@@ -35,7 +35,7 @@ const data = {
         subtitle:
             "Advanced AI, Medical Software & Digital Solutions for Hospitals, Diagnostics & Healthcare Enterprises",
         description:
-            "We design, build, and deploy cutting-edge healthcare technology — from AI-powered diagnostics to hospital management systems — enabling better clinical decisions, operational efficiency, and improved patient outcomes.",
+            "We design, build, and deploy cutting-edge healthcare technology from AI-powered diagnostics to hospital management systems enabling better clinical decisions, operational efficiency, and improved patient outcomes.",
         ctas: [
             { text: "Explore Our Healthcare Solutions", variant: "primary" as const, icon: "zap" as const },
             { text: "Talk to Our Experts", variant: "secondary" as const, icon: "chevron" as const },
