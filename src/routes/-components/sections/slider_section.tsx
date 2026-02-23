@@ -48,8 +48,9 @@ export default function SliderSection({ slides }: SliderSectionProps) {
                             className={cn(
                                 "relative cursor-pointer overflow-hidden rounded-2xl transition-all duration-500 ease-in-out",
                                 isActive
-                                    ? `h-[500px] md:h-110 flex-[4] bg-linear-to-r ${card.bg}`
-                                    : `h-20 md:h-110 bg-linear-to-r ${card.bg} flex-1 md:flex-[2] md:bg-linear-to-r md:from-[#00827f] md:to-[#00827f]`,
+                                    ? "h-[500px] md:h-[480px] flex-[4] bg-linear-to-r"
+                                    : "h-20 md:h-[480px] bg-[#00827f] flex-1 md:flex-[2]",
+                                card.bg,
                             )}
                         >
                             {!isActive && (
@@ -109,25 +110,13 @@ export default function SliderSection({ slides }: SliderSectionProps) {
                                     {card.ctaText || "See How"}
                                 </button>
                             </div>
-                            {isActive ? (
-                                <img
-                                    src={card.image.active}
-                                    alt="Active"
-                                    className="absolute bottom-0 right-0 h-full object-cover transition-all duration-500"
-                                />
-                            ) : (
-                                <img
-                                    src={card.image.inactive}
-                                    alt="Inactive"
-                                    className="hidden md:block  absolute inset-0 h-full object-cover transition-all duration-500"
-                                />
-                            )}
                             <img
-                                src={card.image.active}
-                                alt="Active"
+                                src={isActive ? card.image.active : card.image.inactive}
+                                alt={card.title}
                                 className={cn(
-                                    "md:hidden absolute bottom-0 right-0 h-full object-cover transition-all duration-500",
-                                    isActive ? "opacity-100" : "opacity-0 pointer-events-none",
+                                    "absolute inset-0 h-full w-full object-cover transition-all duration-500",
+                                    isActive ? "opacity-100 z-0" : "opacity-40 md:opacity-100",
+                                    !isActive && "hidden md:block",
                                 )}
                             />
 
